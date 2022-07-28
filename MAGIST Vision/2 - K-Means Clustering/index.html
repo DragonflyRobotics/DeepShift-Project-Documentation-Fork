@@ -562,12 +562,12 @@
 
 <h1 id="k-means-clustering">K-Means Clustering</h1>
 <h2 id="working-principle">Working Principle</h2>
-<p>K-Means Clustering is a simple but powerful unsupervised learning <span class="twemoji" title="Unsupervised learning is a technique that involves a mathematical model learning the underlying patterns of a given data without any external assistance. This can allow us to see patterns that humans may have never thought of."><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2v6Z"/></svg></span> algorithm. K-Means Clustering aims to divide a given sample data into "k" groups. The process is intuitivly simple:</p>
+<p>K-Means Clustering is a simple but powerful unsupervised learning <span class="twemoji" title="Unsupervised learning is a technique that involves a mathematical model learning the underlying patterns of a given data without any external assistance. This can allow us to see patterns that humans may have never thought of."><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2v6Z"/></svg></span> algorithm. K-Means Clustering aims to divide a given sample data into "k" groups. The process is intuitively simple:</p>
 <ol>
 <li>Place k number centroids of the clusters in random locations in the data space.</li>
 <li>For each sample in the data space, associate its class with the nearest centroid.</li>
 <li>For each cluster, compute the geometric center and move the centroids there.</li>
-<li>Repeat step 2 and 3 until you don't need to change the location of the centroid.</li>
+<li>Repeat steps 2 and 3 until you don't need to change the location of the centroid.</li>
 </ol>
 <details class="info" open="open">
 <summary>Automatically compute "k"</summary>
