@@ -768,13 +768,13 @@
 <p><strong>We now have official documentation available <a href="https://wiki.deepshift.dev">here</a>!</strong></p>
 <hr />
 <h2 id="working-principle">Working Principle</h2>
-<p><img alt="Drawing" src="https://user-images.githubusercontent.com/85193239/180865087-f5da4734-11c7-4019-8a74-309e3b2198a7.png" /></p>
+<p><img alt="Drawing" src="https://user-images.githubusercontent.com/85193239/181803134-320f9493-aea7-4350-8b68-c7f7d62f8293.png" /></p>
 <h3 id="data">Data</h3>
 <p>The data is the most crucial element as the entire intelligence works around it. That is why the AI needs to process it and provide reasonable assumptions. There is another condition, however: the algorithm, in its finished state, MUST be strictly Python code. This means no pre-trained models or presets. It must find its data and process it unsupervised. Although this architecture seems hard-coded in the present state, as more functionality is added, it will be more intelligent and decisive. Here, the data will assume the following structure:</p>
 <div class="highlight"><pre><span></span><code>Object -&gt; Common Associated Verbs, Synonyms, Events, Timestamps of usage, Nearby Objects, etc.
 </code></pre></div>
-<p>This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when 
-inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained 
+<p>This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when
+inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained
 models are allowed, here is the process to follow:</p>
 <div class="highlight"><pre><span></span><code>1. K-Means Clustering(find key objects in the image) -&gt; Discriminator for integrity check(see if clustering was performed well)
 2. Reverse Image Search and Google Scraping(find the label of image) -&gt; Data Downloader(find dataset from large datasets)
@@ -795,13 +795,13 @@ models are allowed, here is the process to follow:</p>
 <hr />
 <h2 id="usage">Usage</h2>
 <p>This project is still under development. Please contact me at <a href="">krishna.shah@deepshift.dev</a> if you want immediate access and/or support
-to MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for access. There 
+to MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for access. There
 will also be documentation with more instructions.</p>
 <hr />
 <h2 id="installation">Installation</h2>
-<p>This project has many dependencies. Most can be installed using <code>pip</code>. Some require OS-level package managers. This is 
+<p>This project has many dependencies. Most can be installed using <code>pip</code>. Some require OS-level package managers. This is
 going to work best in Linux-based systems.</p>
-<p><strong><em>These instructions are for Linux-based systems. In particular for Ubuntu 20.04 LTS based operating systems. Other 
+<p><strong><em>These instructions are for Linux-based systems. In particular for Ubuntu 20.04 LTS based operating systems. Other
 systems may have errors that will require debugging.</em></strong></p>
 <h3 id="linux-ubuntu-based-systems">Linux (Ubuntu-based Systems)</h3>
 <p>First, install <code>Python 3</code> and <code>pip</code>:
@@ -810,16 +810,16 @@ systems may have errors that will require debugging.</em></strong></p>
 Next, we need to install Firefox and its corresponding <code>geckodriver</code> for headless Selenium searches:
 <div class="highlight"><pre><span></span><code>sudo apt install firefox
 </code></pre></div></p>
-<p><strong>Note:</strong> If you get an error regarding the geckodriver, you can install it manually by following the instructions 
+<p><strong>Note:</strong> If you get an error regarding the geckodriver, you can install it manually by following the instructions
 <a href="https://github.com/mozilla/geckodriver">here</a>.</p>
 <h4 id="install-system-packages">Install System Packages</h4>
-<p>Next, we need to install the system packages that MAGIST uses. 
+<p>Next, we need to install the system packages that MAGIST uses.
 <div class="highlight"><pre><span></span><code>sudo apt install python3-pyaudio
 sudo apt install libasound-dev
 </code></pre></div></p>
 <h4 id="mongodb">MongoDB</h4>
-<p>Next, we need to install MongoDB. This is a database that MAGIST uses to store its data. Please go to the 
-<a href="https://www.mongodb.com/">MongoDB Website</a> and follow the instructions to install it. We have more instructions in the 
+<p>Next, we need to install MongoDB. This is a database that MAGIST uses to store its data. Please go to the
+<a href="https://www.mongodb.com/">MongoDB Website</a> and follow the instructions to install it. We have more instructions in the
 <a href="https://github.com/DeepShift-Labs/MAGIST-Algorithm/tree/main/docs">documentation</a>.</p>
 <p>Next, create a Python environment. There are 2 ways to do this: Anaconda or VEnv.</p>
 <h4 id="anaconda">Anaconda</h4>
@@ -848,15 +848,15 @@ Get the latest MAGIST Wheel from our <a href="https://github.com/DeepShift-Labs/
 <p><strong>Congratulations! You are all set up to script and use MAGIST</strong></p>
 <hr />
 <h2 id="contributing">Contributing</h2>
-<p>Your contribution, monetary or programmatically, is crucial for the rapid development of the algorithm and its training. 
+<p>Your contribution, monetary or programmatically, is crucial for the rapid development of the algorithm and its training.
 Please consider contributing. Even minute changes to our README will be greatly appreciated.</p>
 <h3 id="project-zeta">Project Zeta</h3>
-<p>We are building a fully biomimetic robot dog to implement MAGIST into. This will serve as the gateway between MAGIST and the physical world. </p>
+<p>We are building a fully biomimetic robot dog to implement MAGIST into. This will serve as the gateway between MAGIST and the physical world.</p>
 <p><a href="https://github.com/DeepShift-Labs/Project-Zeta"><img alt="Readme Card" src="https://github-readme-stats.vercel.app/api/pin/?username=DeepShift-Labs&amp;repo=Project-Zeta" /></a></p>
 <hr />
 <h1 id="disclaimer">Disclaimer</h1>
 <p>Artificial Intelligence is a powerful field <strong>meant only for research and study</strong>, and it should be kept that way. The unethical use of MAGIST can have severe repercussions for society and the perpetrator. DeepShift Labs and any programs it develops are strictly for research purposes. Hence, all of our products, MAGIST included, are to be used <strong>strictly</strong> for research purposes. Misuse of this program can lead to heavy fines and prosecution.
-Furthermore, to retitle, rebrand, or redistribute without <strong>explicitly</strong> crediting DeepShift Labs is illegal. </p>
+Furthermore, to retitle, rebrand, or redistribute without <strong>explicitly</strong> crediting DeepShift Labs is illegal.</p>
 
               
             </article>
