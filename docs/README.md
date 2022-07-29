@@ -11,7 +11,7 @@ Multi-Agent Generally Intelligent Simultaneous Training Algorithm for Project Ze
 ***
 
 ## Working Principle
-![Drawing](https://user-images.githubusercontent.com/85193239/180865087-f5da4734-11c7-4019-8a74-309e3b2198a7.png)
+![Drawing](https://user-images.githubusercontent.com/85193239/181803134-320f9493-aea7-4350-8b68-c7f7d62f8293.png)
 
 
 ### Data
@@ -21,8 +21,8 @@ The data is the most crucial element as the entire intelligence works around it.
 Object -> Common Associated Verbs, Synonyms, Events, Timestamps of usage, Nearby Objects, etc.
 ```
 
-This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when 
-inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained 
+This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when
+inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained
 models are allowed, here is the process to follow:
 
 ```
@@ -50,16 +50,16 @@ Another key stage of this AGI(Artificial General Intelligence) is human interact
 
 ## Usage
 This project is still under development. Please contact me at [krishna.shah@deepshift.dev]() if you want immediate access and/or support
-to MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for access. There 
+to MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for access. There
 will also be documentation with more instructions.
 
 ***
 
 ## Installation
-This project has many dependencies. Most can be installed using `pip`. Some require OS-level package managers. This is 
+This project has many dependencies. Most can be installed using `pip`. Some require OS-level package managers. This is
 going to work best in Linux-based systems.
 
-***These instructions are for Linux-based systems. In particular for Ubuntu 20.04 LTS based operating systems. Other 
+***These instructions are for Linux-based systems. In particular for Ubuntu 20.04 LTS based operating systems. Other
 systems may have errors that will require debugging.***
 
 ### Linux (Ubuntu-based Systems)
@@ -72,19 +72,19 @@ Next, we need to install Firefox and its corresponding `geckodriver` for headles
 sudo apt install firefox
 ```
 
-**Note:** If you get an error regarding the geckodriver, you can install it manually by following the instructions 
+**Note:** If you get an error regarding the geckodriver, you can install it manually by following the instructions
 [here](https://github.com/mozilla/geckodriver).
 
 #### Install System Packages
-Next, we need to install the system packages that MAGIST uses. 
+Next, we need to install the system packages that MAGIST uses.
 ```commandline
 sudo apt install python3-pyaudio
 sudo apt install libasound-dev
 ```
 
 #### MongoDB
-Next, we need to install MongoDB. This is a database that MAGIST uses to store its data. Please go to the 
-[MongoDB Website](https://www.mongodb.com/) and follow the instructions to install it. We have more instructions in the 
+Next, we need to install MongoDB. This is a database that MAGIST uses to store its data. Please go to the
+[MongoDB Website](https://www.mongodb.com/) and follow the instructions to install it. We have more instructions in the
 [documentation](https://github.com/DeepShift-Labs/MAGIST-Algorithm/tree/main/docs).
 
 
@@ -130,11 +130,11 @@ pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 ***
 
 ## Contributing
-Your contribution, monetary or programmatically, is crucial for the rapid development of the algorithm and its training. 
+Your contribution, monetary or programmatically, is crucial for the rapid development of the algorithm and its training.
 Please consider contributing. Even minute changes to our README will be greatly appreciated.
 
 ### Project Zeta
-We are building a fully biomimetic robot dog to implement MAGIST into. This will serve as the gateway between MAGIST and the physical world. 
+We are building a fully biomimetic robot dog to implement MAGIST into. This will serve as the gateway between MAGIST and the physical world.
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=DeepShift-Labs&repo=Project-Zeta)](https://github.com/DeepShift-Labs/Project-Zeta)
 
@@ -142,4 +142,4 @@ We are building a fully biomimetic robot dog to implement MAGIST into. This will
 
 # Disclaimer
 Artificial Intelligence is a powerful field **meant only for research and study**, and it should be kept that way. The unethical use of MAGIST can have severe repercussions for society and the perpetrator. DeepShift Labs and any programs it develops are strictly for research purposes. Hence, all of our products, MAGIST included, are to be used **strictly** for research purposes. Misuse of this program can lead to heavy fines and prosecution.
-Furthermore, to retitle, rebrand, or redistribute without **explicitly** crediting DeepShift Labs is illegal. 
+Furthermore, to retitle, rebrand, or redistribute without **explicitly** crediting DeepShift Labs is illegal.
