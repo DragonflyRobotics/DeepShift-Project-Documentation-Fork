@@ -6,7 +6,7 @@ Understanding the core fundamentals of MAGIST is crucial for designing a custom 
 
 This is the exact process running the current MAGIST process pipeline. There are hundreds of features left to implement.
 
-**Note: We do NOT claim that this current process is MAGIST's final form OR that this current process is Generally Intelligent. With proper language processors, transformers, MDCs, etc., it has the potential of being the WORLD's first AGI(Artificial General Intelligence).**
+**Note: We do NOT claim that this current process is MAGIST's final form OR that this current process is Generally Intelligent. With proper language processors, transformers, MDCs, etc., it has the potential of being the World's first AGI(Artificial General Intelligence).**
 
 ![Drawing](https://user-images.githubusercontent.com/85193239/181803134-320f9493-aea7-4350-8b68-c7f7d62f8293.png)
 

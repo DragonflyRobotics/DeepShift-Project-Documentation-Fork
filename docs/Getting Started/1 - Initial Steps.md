@@ -1,7 +1,7 @@
 # Welcome
 We are thrilled that you have shown interest in the MAGIST project. We are currently in the process of building the
 MAGIST. As a result, there might be issues or bugs that you encounter. If you encounter any issues, please post an issue
-on the MAGIST Github repository. We will try to resolve them as soon as possible. If you have a solution to the issue,
+on the MAGIST GitHub repository. We will try to resolve them as soon as possible. If you have a solution to the issue,
 you may create a pull request, and we will review it as soon as possible. With that out of the way, let's get started!
 
 ## How it works?
@@ -56,7 +56,7 @@ Next, we need to install MongoDB. This is a database that MAGIST uses to store i
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 ```
 
-If you get an error with the command above, you need to install `gnupg` and then reimport the key.
+If you get an error with the command above, you need to install `gnupg` and then re-import the key.
 ```commandline
 sudo apt install gnupg
 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -

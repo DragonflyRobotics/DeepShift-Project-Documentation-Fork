@@ -78,7 +78,7 @@ The file explored in the previous section is the `config.json` file under the `s
     `schema_nested.json` is an experimental file that used ElasticSearch nested databases. This file should be ignored. This wiki will only cover `schema.json` and `queries.json` since they are relevant to the project.
 
 ### Queries Configuration
-After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to using them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.
+After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to using them. ElasticSearch entirely runs on JSON queries which is why we created seperate configuration files for them.
 
 ``` json linenums="1"
 {
@@ -124,7 +124,7 @@ After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data stor
 3.  Runs a keyword search which is meant for names.
 4.  Query to do a complete database search for objects by any datapoint: name, description, location, usage, etc.
 5.  Sets the field to wildcard.
-6.  Uses a custom analyzer to effectively search the database for information.
+6.  Uses a custom analyzer to effectivly search the database for information.
 7.  Functions identically to `object_exists`, but for words.
 8.  Functions identically to `object_full`, but for words.
 
@@ -203,8 +203,8 @@ The `schema.json` file is responsible for defining search parameters, ElasticSea
 2.  This is the ElasticSearch database settings that defines the analyzer and search settings.
 3.  The analyzer is a set of algorithms that define the exact semantics on how a word/sentence/paragraph is to be interpreted, searched, and processed.
 4.  This defines the custom analyzer that MAGIST uses.
-5.  The analyzer uses the `fingerprint` algorithm will "lowercase, normalize to remove extended characters, sort, deduplicate and concatenate into a single token. If a stop-word list is configured, stop words will also be removed"[^1].
-6.  Defines the dictionary to use when deleting stop-words like "is", "the", "an", etc.
+5.  The analyzer uses the `fingerprint` algorithm will "lowercase, normalize to remove extended characters, sort, deduplicate and concatenate into a single token. If a stopword list is configured, stop words will also be removed"[^1].
+6.  Defines the dictionary to use when deleting stopwords like "is", "the", "an", etc.
 7.  This defines the similarity algorithm ElasticSearch will used when evaluating the similarity of the query to the data sample.
 8.  This algorithm will "attempt to capture important patterns in the text, while leaving out noise"[^2].
 9.  The `lambda` parameter is one of the requirements for the algorithm to function. [More about LM Jelinek Mercer lambda parameter](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html#lm_jelinek_mercer)
@@ -212,14 +212,14 @@ The `schema.json` file is responsible for defining search parameters, ElasticSea
 11.  In this case, `properties` refers to the attributes of the object itself and are not ElasticSearch.
 12.  Name of the objects
 13.  Description of the object scraped from online sources.
-14.  People who have been recognized to be using that object.
+14.  People who have been recogized to be using that object.
 15.  Other objects that relate to this object.
 16.  Where the object was found.
 17.  Same database schema container as the `object_db_schema` but for words.
 18.  The word that is being stored.
 19.  The definition of the word.
 20.  People who were found to use that word.
-21.  Other words that relate to this one.
+21.  Other words that realate to this one.
 22.  Objects that relate to the word.
 23.  Where the word was used.   
 
