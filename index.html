@@ -122,7 +122,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -131,7 +131,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -771,26 +771,26 @@
 <p><img alt="Drawing" src="https://user-images.githubusercontent.com/85193239/181803134-320f9493-aea7-4350-8b68-c7f7d62f8293.png" /></p>
 <h3 id="data">Data</h3>
 <p>The data is the most crucial element as the entire intelligence works around it. That is why the AI needs to process it and provide reasonable assumptions. There is another condition, however: the algorithm, in its finished state, MUST be strictly Python code. This means no pre-trained models or presets. It must find its data and process it unsupervised. Although this architecture seems hard-coded in the present state, as more functionality is added, it will be more intelligent and decisive. Here, the data will assume the following structure:</p>
-<div class="highlight"><pre><span></span><code>Object -&gt; Common Associated Verbs, Synonyms, Events, Timestamps of usage, Nearby Objects, etc.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Object -&gt; Common Associated Verbs, Synonyms, Events, Timestamps of usage, Nearby Objects, etc.
 </code></pre></div>
 <p>This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when
 inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained
 models are allowed, here is the process to follow:</p>
-<div class="highlight"><pre><span></span><code>1. K-Means Clustering(find key objects in the image) -&gt; Discriminator for integrity check(see if clustering was performed well)
-2. Reverse Image Search and Google Scraping(find the label of image) -&gt; Data Downloader(find dataset from large datasets)
-3. Transfer Learn Model -&gt; Object Detector
-4. Get a summary from internet sources like Wikipedia; location from LiDAR(future); user from facial detection(future); etc.
-5. Store all the data in the NeuralDB
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. K-Means Clustering(find key objects in the image) -&gt; Discriminator for integrity check(see if clustering was performed well)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Reverse Image Search and Google Scraping(find the label of image) -&gt; Data Downloader(find dataset from large datasets)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. Transfer Learn Model -&gt; Object Detector
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>4. Get a summary from internet sources like Wikipedia; location from LiDAR(future); user from facial detection(future); etc.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>5. Store all the data in the NeuralDB
 </code></pre></div>
 <h3 id="natural-language-processing">Natural Language Processing</h3>
 <p>Another key stage of this AGI(Artificial General Intelligence) is human interaction and understanding. MAGIST will constantly listen to conversations and make intelligent decisions. Here is the target process:</p>
-<div class="highlight"><pre><span></span><code>1. Record audio data and transcribe it(this is ***the only*** place where a pre-trained model(the transcriber) is used since learning a human language fully unsupervised is incredibly arduous.
-2. Use a custom positional embedding with a Self-Attention head to find keywords.
-3. Search these terms in the NeuralDB for possible entries.
-4. Search unknown terms online and store definitions for future reference. (future)
-5. Extract key terms from matching entries. (future)
-6. Insert those key terms into a text transformer trained on the collected NeuralDB data to generate a prediction. (future)
-7. Utter the prediction. (future)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Record audio data and transcribe it(this is ***the only*** place where a pre-trained model(the transcriber) is used since learning a human language fully unsupervised is incredibly arduous.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2. Use a custom positional embedding with a Self-Attention head to find keywords.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3. Search these terms in the NeuralDB for possible entries.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4. Search unknown terms online and store definitions for future reference. (future)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>5. Extract key terms from matching entries. (future)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>6. Insert those key terms into a text transformer trained on the collected NeuralDB data to generate a prediction. (future)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>7. Utter the prediction. (future)
 </code></pre></div>
 <hr />
 <h2 id="usage">Usage</h2>
@@ -805,17 +805,17 @@ going to work best in Linux-based systems.</p>
 systems may have errors that will require debugging.</em></strong></p>
 <h3 id="linux-ubuntu-based-systems">Linux (Ubuntu-based Systems)</h3>
 <p>First, install <code>Python 3</code> and <code>pip</code>:
-<div class="highlight"><pre><span></span><code>sudo apt install python3 python3-dev python3-pip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo apt install python3 python3-dev python3-pip
 </code></pre></div>
 Next, we need to install Firefox and its corresponding <code>geckodriver</code> for headless Selenium searches:
-<div class="highlight"><pre><span></span><code>sudo apt install firefox
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo apt install firefox
 </code></pre></div></p>
 <p><strong>Note:</strong> If you get an error regarding the geckodriver, you can install it manually by following the instructions
 <a href="https://github.com/mozilla/geckodriver">here</a>.</p>
 <h4 id="install-system-packages">Install System Packages</h4>
 <p>Next, we need to install the system packages that MAGIST uses.
-<div class="highlight"><pre><span></span><code>sudo apt install python3-pyaudio
-sudo apt install libasound-dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo apt install python3-pyaudio
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo apt install libasound-dev
 </code></pre></div></p>
 <h4 id="mongodb">MongoDB</h4>
 <p>Next, we need to install MongoDB. This is a database that MAGIST uses to store its data. Please go to the
@@ -825,25 +825,25 @@ sudo apt install libasound-dev
 <h4 id="anaconda">Anaconda</h4>
 <p>First, install Anaconda from https://www.anaconda.com/.</p>
 <p>Make the Anaconda environment:
-<div class="highlight"><pre><span></span><code>conda create --name myenv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>conda create --name myenv
 </code></pre></div>
 Activate the environment in your current console. Note: You will have to do this every time you want to run MAGIST.
-<div class="highlight"><pre><span></span><code>conda activate myenv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>conda activate myenv
 </code></pre></div>
 Get the latest MAGIST Wheel from our <a href="https://github.com/DeepShift-Labs/MAGIST-Algorithm/releases">releases page</a>!</p>
 <p>Install MAGIST:
-<div class="highlight"><pre><span></span><code>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 </code></pre></div></p>
 <h4 id="venv">VEnv</h4>
 <p>Make the environment in a designated location.
-<div class="highlight"><pre><span></span><code>python3 -m venv /path/to/new/virtual/environment
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python3 -m venv /path/to/new/virtual/environment
 </code></pre></div>
 To activate it, you must travel to that <code>path/bin/</code> and then run:
-<div class="highlight"><pre><span></span><code>source activate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>source activate
 </code></pre></div>
 Get the latest MAGIST Wheel from our <a href="https://github.com/DeepShift-Labs/MAGIST-Algorithm/releases">releases page</a>!</p>
 <p>Install MAGIST:
-<div class="highlight"><pre><span></span><code>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 </code></pre></div></p>
 <p><strong>Congratulations! You are all set up to script and use MAGIST</strong></p>
 <hr />

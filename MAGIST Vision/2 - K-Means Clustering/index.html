@@ -122,7 +122,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -131,7 +131,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -583,7 +583,7 @@
 </figure>
 <h2 id="implementation-using-magist">Implementation Using MAGIST</h2>
 <p>Currently, MAGIST uses K-Means Clustering for masking images. It attempts to identify individual objects in an image which can then be further processed to extract more information. For this, you must use the <code>UnsupervisedModels</code> under the <code>Vision</code> directory. It can be imported like so:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">MAGIST.Vision.UnsupervisedModels.img_cluster</span> <span class="kn">import</span> <span class="n">RoughCluster</span> <span class="c1"># (1)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">MAGIST.Vision.UnsupervisedModels.img_cluster</span> <span class="kn">import</span> <span class="n">RoughCluster</span> <span class="c1"># (1)</span>
 </code></pre></div>
 <ol>
 <li>UnsupervisedModels contains a Python file named <code>img_cluster.py</code> that contains the <code>RoughCluster</code> class. This is where all the necessary methods for computing the clusters.</li>
@@ -593,21 +593,21 @@
 <p>This computation is done with the help of SciKit-Learn and Pandas.</p>
 </div>
 <p>Now, create an instance of the <code>RoughCluster</code> class:</p>
-<div class="highlight"><pre><span></span><code><span class="n">clusterer</span> <span class="o">=</span> <span class="n">RoughCluster</span><span class="p">(</span><span class="s2">&quot;PATH/TO/CONFIG.json&quot;</span><span class="p">)</span> <span class="c1"># (1)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">clusterer</span> <span class="o">=</span> <span class="n">RoughCluster</span><span class="p">(</span><span class="s2">&quot;PATH/TO/CONFIG.json&quot;</span><span class="p">)</span> <span class="c1"># (1)</span>
 </code></pre></div>
 <ol>
 <li>More information about the config file is located here: <a href="/Configuration/1 - Setup Config File">Setup Config File</a></li>
 </ol>
 <p>Finally, we can compute the cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="n">n_of_clusters</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">img_location</span> <span class="o">=</span> <span class="s2">&quot;Data/test.jpg&quot;</span>
-<span class="n">img_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">masked_img_dir</span> <span class="o">=</span> <span class="s2">&quot;Data/Clusters&quot;</span>
-
-<span class="n">masked_img_locations</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">unsupervised_clusters</span><span class="p">(</span><span class="n">n_of_clusters</span><span class="p">,</span> <span class="n">img_location</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">masked_img_dir</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">n_of_clusters</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">img_location</span> <span class="o">=</span> <span class="s2">&quot;Data/test.jpg&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">img_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">masked_img_dir</span> <span class="o">=</span> <span class="s2">&quot;Data/Clusters&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">masked_img_locations</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">unsupervised_clusters</span><span class="p">(</span><span class="n">n_of_clusters</span><span class="p">,</span> <span class="n">img_location</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">masked_img_dir</span><span class="p">)</span>
 </code></pre></div>
 <p>Here is what <code>masked_img_locations</code> should look like:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s2">&quot;Data/Clusters/masked0.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/Clusters/masked1.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/Clusters/masked2.jpg&quot;</span><span class="p">]</span> <span class="c1"># (1)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[</span><span class="s2">&quot;Data/Clusters/masked0.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/Clusters/masked1.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;Data/Clusters/masked2.jpg&quot;</span><span class="p">]</span> <span class="c1"># (1)</span>
 </code></pre></div>
 <ol>
 <li>The amount of images listed depends on the <code>n_of_clusters</code>.</li>
