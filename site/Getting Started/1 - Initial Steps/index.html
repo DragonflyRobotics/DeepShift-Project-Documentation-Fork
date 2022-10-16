@@ -122,7 +122,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -131,7 +131,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -711,7 +711,7 @@
 <h1 id="welcome">Welcome</h1>
 <p>We are thrilled that you have shown interest in the MAGIST project. We are currently in the process of building the
 MAGIST. As a result, there might be issues or bugs that you encounter. If you encounter any issues, please post an issue
-on the MAGIST Github repository. We will try to resolve them as soon as possible. If you have a solution to the issue,
+on the MAGIST GitHub repository. We will try to resolve them as soon as possible. If you have a solution to the issue,
 you may create a pull request, and we will review it as soon as possible. With that out of the way, let's get started!</p>
 <h2 id="how-it-works">How it works?</h2>
 <p>We are using a powerful technique that combine the decades of research our brilliant researchers have done. We are using a
@@ -735,60 +735,60 @@ the following environment:</p>
 systems may have errors that will require debugging.</em></strong></p>
 <h3 id="linux-ubuntu-based-systems">Linux (Ubuntu-based Systems)</h3>
 <p>First install <code>Python 3</code> and <code>pip</code>:
-<div class="highlight"><pre><span></span><code>sudo apt python3 python3-dev python3-pip
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo apt python3 python3-dev python3-pip
 </code></pre></div>
 Next, we need to install Firefox and its corresponding <code>geckodriver</code> for headless Selenium searches:
-<div class="highlight"><pre><span></span><code>sudo apt install firefox
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt install firefox
 </code></pre></div></p>
 <p><strong>Note:</strong> If you get an error regarding the geckodriver, you can install it manually by following the instructions
 <a href="https://github.com/mozilla/geckodriver">here</a>.</p>
 <h4 id="install-system-packages">Install System Packages</h4>
 <p>Next, we need to install the system packages that MAGIST uses.
-<div class="highlight"><pre><span></span><code>sudo apt install python3-pyaudio
-sudo apt install libasound-dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo apt install python3-pyaudio
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo apt install libasound-dev
 </code></pre></div></p>
 <h4 id="mongodb">MongoDB</h4>
 <p>Next, we need to install MongoDB. This is a database that MAGIST uses to store its data.
-<div class="highlight"><pre><span></span><code>wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 </code></pre></div></p>
-<p>If you get an error with the command above, you need to install <code>gnupg</code> and then reimport the key.
-<div class="highlight"><pre><span></span><code>sudo apt install gnupg
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+<p>If you get an error with the command above, you need to install <code>gnupg</code> and then re-import the key.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo apt install gnupg
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
 </code></pre></div></p>
 <p>Next, we need to make the list file:
-<div class="highlight"><pre><span></span><code>echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 </code></pre></div></p>
 <p>Reload the package list:
-<div class="highlight"><pre><span></span><code>sudo apt update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo apt update
 </code></pre></div></p>
 <p>Finally install MongoDB:
-<div class="highlight"><pre><span></span><code>sudo apt install mongodb-org
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo apt install mongodb-org
 </code></pre></div></p>
 <p>Next, create a Python environment. There are 2 ways to do this: Anaconda or VEnv.</p>
 <h4 id="anaconda">Anaconda</h4>
 <p>First install Anaconda from https://www.anaconda.com/. You will need to download the latest installer and then run the following commands:
-<div class="highlight"><pre><span></span><code>sudo chmod +x Anaconda3-xxxx.xx-Linux-x86_64.sh
-./Anaconda3-xxxx.xx-Linux-x86_64.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo chmod +x Anaconda3-xxxx.xx-Linux-x86_64.sh
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>./Anaconda3-xxxx.xx-Linux-x86_64.sh
 </code></pre></div></p>
 <p>Close and reopen <strong>all</strong> terminal windows.</p>
 <p>Make the Anaconda environment:
-<div class="highlight"><pre><span></span><code>conda create --name myenv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>conda create --name myenv
 </code></pre></div>
 Activate the environment in your current console. Note: You will have to do this every time you want to run MAGIST.
-<div class="highlight"><pre><span></span><code>conda activate myenv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>conda activate myenv
 </code></pre></div>
 Install MAGIST:
-<div class="highlight"><pre><span></span><code>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 </code></pre></div></p>
 <h4 id="venv">VEnv</h4>
 <p>Make the environment in a designated location.
-<div class="highlight"><pre><span></span><code>python3 -m venv /path/to/new/virtual/environment
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python3 -m venv /path/to/new/virtual/environment
 </code></pre></div>
 To activate it, you must travel to that <code>path/bin/</code> and then run:
-<div class="highlight"><pre><span></span><code>source activate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>source activate
 </code></pre></div>
 Install MAGIST:
-<div class="highlight"><pre><span></span><code>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 </code></pre></div></p>
 <p><strong>Congratulations! You are all setup to script and use MAGIST</strong></p>
 <h2 id="enterprise-setup">Enterprise Setup</h2>

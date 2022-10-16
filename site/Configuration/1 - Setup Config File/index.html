@@ -77,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#modular-configuration-system-mcs" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -117,7 +122,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -126,7 +131,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -365,10 +370,70 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setup Config File
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Setup Config File
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#line-by-line-sample-config-explanation" class="md-nav__link">
+    Line-By-Line Sample Config Explanation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-important-configuration-files" class="md-nav__link">
+    Other Important Configuration Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Important Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries-configuration" class="md-nav__link">
+    Queries Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-schema-configuration" class="md-nav__link">
+    Data Schema Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -474,6 +539,50 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#line-by-line-sample-config-explanation" class="md-nav__link">
+    Line-By-Line Sample Config Explanation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-important-configuration-files" class="md-nav__link">
+    Other Important Configuration Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Important Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queries-configuration" class="md-nav__link">
+    Queries Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-schema-configuration" class="md-nav__link">
+    Data Schema Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -491,9 +600,364 @@
 
 
 
-  <h1>Setup Config File</h1>
-
-<p>Coming soon!</p>
+<h1 id="modular-configuration-system-mcs">Modular Configuration System (MCS)</h1>
+<p>MAGIST uses a custom configuration system that we call MCS. MCS is a modular method for managing data-flows and MAGIST subcomponents. For example, for the dataflow "images", we have the "MAGIST Vision" which contains the "DetectionDataManager", "FullySupervisedModels", and "SemiSupervisedModels". Although all subcomponents do not require configuration, having such categorization provides the modularity that makes MAGIST community-friendly.</p>
+<p>If community members are interested in making custom modules using the base MAGIST API, they can readily do that through this configuration and a consistent module setup that will be discussed in later wiki pages.</p>
+<h2 id="line-by-line-sample-config-explanation">Line-By-Line Sample Config Explanation</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;api_authentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (1)</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;google&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;api_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;project_cx&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">      </span><span class="p">{</span><span class="nt">&quot;GIS_downloader_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">]}</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;system_administration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (2)</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;sudo_password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span><span class="nt">&quot;task_management&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (3)</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;num_of_worker_threads&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="nt">&quot;paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (4)</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;log_dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logs&quot;</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">  </span><span class="nt">&quot;basic_variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (5)</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;enable_matplot_display&quot;</span><span class="p">:</span><span class="w">  </span><span class="mi">0</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">  </span><span class="nt">&quot;tf_lite_detector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (6)</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;data_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Data&quot;</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;TensorBoard_log_dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tensorflow/TensorBoard&quot;</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;TF_ckpt_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tensorflow/tf_ckpt&quot;</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;input_image_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">]},</span><span class="w"></span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;grayscale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;epochs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;batch_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;seed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;validation_split&quot;</span><span class="p">:</span><span class="w">  </span><span class="mf">0.2</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;export_full_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tensorflow/Full_TF_Model&quot;</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="nt">&quot;neural_db&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// (7) (8)</span><span class="w"></span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;mongo_socket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mongodb://localhost:27017/&quot;</span><span class="p">},</span><span class="w"> </span><span class="c1">//(9)</span><span class="w"></span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;db_search_zone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;vision&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nlp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;common&quot;</span><span class="p">]}</span><span class="w"> </span><span class="c1">// (10)</span><span class="w"></span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="p">]</span><span class="w"></span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>This is a large container to manage all API related authentication and configuration. This can contain subsets by authentication method or API provider.</li>
+<li>This is primarily meant for system-level commands with elevated privileges. 3rd party modules will rarely use this subcomponent.</li>
+<li>This subcomponent manages all the tasks, threads, cores, and other system resources for faster and more distributed operation.</li>
+<li>These are global paths for MAGIST core system. 3rd parties will <strong><em>NOT</em></strong> use this subcomponent and will define paths in their own module as the "tf_lite_detector" module did.</li>
+<li>This component manages verbose and debug. 3rd parties will likely use this as a global verbose setting for their subcomponents.</li>
+<li>This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements regarding their module like paths, modes, parameters, etc.</li>
+<li>This is another example of a subcomponent of MAGIST implemented into the configuration.</li>
+<li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
+<li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
+<li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that this <code>config.json</code> is a sample and the exact parameters vary based on the environment.</p>
+</div>
+<h2 id="other-important-configuration-files">Other Important Configuration Files</h2>
+<p>The file explored in the previous section is the <code>config.json</code> file under the <code>src/config</code> folder on our repository. There are other files that pertain to this project that must also be explored:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>- config
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    * config.json
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    * queries.json
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    * schema.json
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    * schema_nested.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>schema_nested.json</code> is an experimental file that used ElasticSearch nested databases. This file should be ignored. This wiki will only cover <code>schema.json</code> and <code>queries.json</code> since they are relevant to the project.</p>
+</div>
+<h3 id="queries-configuration">Queries Configuration</h3>
+<p>After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to using them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;object_exists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (1)</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;query_string&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="nt">&quot;query&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// (2)</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="w"> </span><span class="c1">// (3)</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="nt">&quot;object_full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (4)</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;multi_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="nt">&quot;query&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (5)</span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main_analyzer&quot;</span><span class="w"> </span><span class="c1">// (6)</span><span class="w"></span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">  </span><span class="nt">&quot;word_exists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (7)</span><span class="w"></span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">      </span><span class="nt">&quot;query_string&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">        </span><span class="nt">&quot;query&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="w"></span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">  </span><span class="nt">&quot;word_full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (8)</span><span class="w"></span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">      </span><span class="nt">&quot;multi_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">        </span><span class="nt">&quot;query&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main_analyzer&quot;</span><span class="w"></span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Query to check if an object exists given a keyword. This does a more narrow search as opposed to the full database search that the following query does.</li>
+<li>Sets the fields to search through to "name" which is just the object name.</li>
+<li>Runs a keyword search which is meant for names.</li>
+<li>Query to do a complete database search for objects by any datapoint: name, description, location, usage, etc.</li>
+<li>Sets the field to wildcard.</li>
+<li>Uses a custom analyzer to effectively search the database for information.</li>
+<li>Functions identically to <code>object_exists</code>, but for words.</li>
+<li>Functions identically to <code>object_full</code>, but for words.</li>
+</ol>
+<p>These queries can be modified to suit user preferences.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MAGIST will simply use the JSON dictionary contained in the categories (<code>object_exists</code>, <code>object_full</code>, <code>word_exists</code>, <code>word_full</code>) <strong><em>EXACTLY</em></strong> as they are written here. This means that these dictionaries are fed <strong><em>DIRECTLY</em></strong> into ElasticSearch. Please use ElasticSearch configuration style, keywords, and arguments when modifying.</p>
+</div>
+<h3 id="data-schema-configuration">Data Schema Configuration</h3>
+<p>The <code>schema.json</code> file is responsible for defining search parameters, ElasticSearch settings, and the database schema. The schema will structure the data in a logical, easy to search format that can easily be expanded. Adding new modules or datatypes will require extensive modification of this schema.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;object_db_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (1)</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (2)</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (3)</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">          </span><span class="nt">&quot;main_analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (4)</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fingerprint&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (5)</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="nt">&quot;stopwords&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_english_&quot;</span><span class="w"> </span><span class="c1">// (6)</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">          </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">      </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">      </span><span class="nt">&quot;similarity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (7)</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="nt">&quot;main_similarity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LMJelinekMercer&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (8)</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">          </span><span class="nt">&quot;lambda&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="c1">// (9)</span><span class="w"></span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="nt">&quot;mappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (10)</span><span class="w"></span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (11)</span><span class="w"></span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// (12)</span><span class="w"></span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (13)</span><span class="w"></span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">        </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (14)</span><span class="w"></span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">        </span><span class="nt">&quot;related_objects&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (15)</span><span class="w"></span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// (16)</span><span class="w"></span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">  </span><span class="nt">&quot;word_db_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (17)</span><span class="w"></span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">      </span><span class="nt">&quot;analysis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">        </span><span class="nt">&quot;analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">          </span><span class="nt">&quot;main_analyzer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fingerprint&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">            </span><span class="nt">&quot;stopwords&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;_english_&quot;</span><span class="w"></span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">          </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">      </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">      </span><span class="nt">&quot;similarity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="w">        </span><span class="nt">&quot;main_similarity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LMJelinekMercer&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">          </span><span class="nt">&quot;lambda&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="nt">&quot;mappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">        </span><span class="nt">&quot;word&quot;</span><span class="p">:</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// (18)</span><span class="w"></span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">        </span><span class="nt">&quot;definition&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (19)</span><span class="w"></span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="w">        </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (20)</span><span class="w"></span>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">        </span><span class="nt">&quot;related_words&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (21)</span><span class="w"></span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">        </span><span class="nt">&quot;related_objects&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="c1">// (22)</span><span class="w"></span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="c1">// (23)</span><span class="w"></span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The container for the object database schema.</li>
+<li>This is the ElasticSearch database settings that defines the analyzer and search settings.</li>
+<li>The analyzer is a set of algorithms that define the exact semantics on how a word/sentence/paragraph is to be interpreted, searched, and processed.</li>
+<li>This defines the custom analyzer that MAGIST uses.</li>
+<li>The analyzer uses the <code>fingerprint</code> algorithm will "lowercase, normalize to remove extended characters, sort, deduplicate and concatenate into a single token. If a stop-word list is configured, stop words will also be removed"<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li>Defines the dictionary to use when deleting stop-words like "is", "the", "an", etc.</li>
+<li>This defines the similarity algorithm ElasticSearch will used when evaluating the similarity of the query to the data sample.</li>
+<li>This algorithm will "attempt to capture important patterns in the text, while leaving out noise"<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</li>
+<li>The <code>lambda</code> parameter is one of the requirements for the algorithm to function. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html#lm_jelinek_mercer">More about LM Jelinek Mercer lambda parameter</a></li>
+<li>This defines the database schema (a.k.a mapping) that the database will use to store each document (this refers to a single datapoint with several attributes).</li>
+<li>In this case, <code>properties</code> refers to the attributes of the object itself and are not ElasticSearch.</li>
+<li>Name of the objects</li>
+<li>Description of the object scraped from online sources.</li>
+<li>People who have been recognized to be using that object.</li>
+<li>Other objects that relate to this object.</li>
+<li>Where the object was found.</li>
+<li>Same database schema container as the <code>object_db_schema</code> but for words.</li>
+<li>The word that is being stored.</li>
+<li>The definition of the word.</li>
+<li>People who were found to use that word.</li>
+<li>Other words that relate to this one.</li>
+<li>Objects that relate to the word.</li>
+<li>Where the word was used.   </li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>MAGIST will simply use the JSON dictionary contained in the categories (<code>object_db_schema</code>, <code>word_db_schema</code>) <strong><em>EXACTLY</em></strong> as they are written here. This means that these dictionaries are fed <strong><em>DIRECTLY</em></strong> into ElasticSearch. Please use ElasticSearch configuration style, keywords, and arguments when modifying.</p>
+</div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This quote is directly taken from the ElasticSearch documentation regarding the <code>fingerprint</code> algorithm. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-fingerprint-analyzer.html">Link to the page</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>This quote is directly taken from the ElasticSearch documentation regarding the <code>LM Jelinek Mercer</code> algorithm. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html#lm_jelinek_mercer">More about LM Jelinek Mercer</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
               
             </article>
