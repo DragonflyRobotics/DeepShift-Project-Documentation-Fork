@@ -1,9 +1,11 @@
 site_name: MAGIST Algorithm Documentation - DeepShift Labs
+site_url: https://wiki.deepshift.dev
 repo_url: https://github.com/DeepShift-Labs/MAGIST-Algorithm
 edit_uri: "https://github.com/DeepShift-Labs/MAGIST-Documentation/edit/master/docs" # No need to make changes here if you are using github
 site_description: "MAGIST Algorithm Documentation - DeepShift Labs"
 site_author: Krishna Shah
 dev_addr: 127.0.0.1:8011
+
 
 nav:
   - "Read Me": README.md
