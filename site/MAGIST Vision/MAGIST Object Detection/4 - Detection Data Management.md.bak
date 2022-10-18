@@ -2,7 +2,7 @@
 
 This component of MAGIST deals with image data manipulation and processing. This class in MAGIST will perform image resizing, integrity verification, and image splitting as depicted by the previous article. This allows the data to be formed and prepared to run the final CNN.
 
-## Importing Necessary Libraries
+## Importing Neccessary Libraries
 
 MAGIST will automatically handle all the dependencies as long as the main `DataDetectionManager` module is imported:
 
@@ -36,7 +36,7 @@ slicer.resizer((length,width), "path/to/directory/with/images")
 
 ### Coordinate Computation
 
-In order to split each input image into a grid, we must first compute the vertices of the grid itself. This will create an array with all the vertices of the grid boxes that can be used to easily split each image.
+In order to split each input image into a grid, we must first compute the verticies of the grid itself. This will create an array with all the verticies of the grid boxes that can be used to easily split each image.
 
 ``` py linenums="1"
 coordinates = slicer.coordinate_compute((input_length,input_width), (output_length,output_width)) # (1)
@@ -93,7 +93,7 @@ This function provides the option to simply check if images are corrupt and coun
 
 ### Convert Images to PNG (experimental)
 
-This class also allows images to be converted to PNG which allows all images to have an alpha value (RGBA instead of RGB) to further standardize the data. This feature is not extensively tested yet.
+This class also allows images to be converted to PNG which allows all images to have an alpha value (RGBA instead of RGB) to further standardize the data. This feature is not extensivly tested yet.
 
 ``` py linenums="1"
 slicer.convert_img_to_png("path/to/images")

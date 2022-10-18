@@ -518,8 +518,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#importing-neccessary-libraries" class="md-nav__link">
-    Importing Neccessary Libraries
+  <a href="#importing-necessary-libraries" class="md-nav__link">
+    Importing Necessary Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resize-image" class="md-nav__link">
+    Resize Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-computation" class="md-nav__link">
+    Coordinate Computation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-slicing" class="md-nav__link">
+    Image Slicing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-integrity-verification" class="md-nav__link">
+    Image Integrity Verification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-images-to-png-experimental" class="md-nav__link">
+    Convert Images to PNG (experimental)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -573,8 +628,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#importing-neccessary-libraries" class="md-nav__link">
-    Importing Neccessary Libraries
+  <a href="#importing-necessary-libraries" class="md-nav__link">
+    Importing Necessary Libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resize-image" class="md-nav__link">
+    Resize Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinate-computation" class="md-nav__link">
+    Coordinate Computation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-slicing" class="md-nav__link">
+    Image Slicing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-integrity-verification" class="md-nav__link">
+    Image Integrity Verification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-images-to-png-experimental" class="md-nav__link">
+    Convert Images to PNG (experimental)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -599,8 +709,66 @@
 
 <h1 id="detection-data-management">Detection Data Management</h1>
 <p>This component of MAGIST deals with image data manipulation and processing. This class in MAGIST will perform image resizing, integrity verification, and image splitting as depicted by the previous article. This allows the data to be formed and prepared to run the final CNN.</p>
-<h2 id="importing-neccessary-libraries">Importing Neccessary Libraries</h2>
-<p>MAGIST will automatically handle all the dependencies as long as </p>
+<h2 id="importing-necessary-libraries">Importing Necessary Libraries</h2>
+<p>MAGIST will automatically handle all the dependencies as long as the main <code>DataDetectionManager</code> module is imported:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">MAGIST.Vision.DetectionDataManager.image_slicer</span> <span class="kn">import</span> <span class="n">ImageSlicer</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="usage">Usage</h2>
+<p>Now, we must initialize the class and begin to use it:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">slicer</span> <span class="o">=</span> <span class="n">ImageSlicer</span><span class="p">(</span><span class="s2">&quot;path/to/config.json&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="resize-image">Resize Image</h3>
+<p>This function allows users to resize all images in a given directory to a standard size.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>It will <strong><em>overwrite</em></strong> existing images. As of now, it does not support functionality to export the images elsewhere. If someone would like to add this functionality, please visit our <a href="https://github.com/DeepShift-Labs/MAGIST-Algorithm">GitHub Repository</a> to learn how to create a pull-request and request your modifications to be merged.</p>
+</div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">slicer</span><span class="o">.</span><span class="n">resizer</span><span class="p">((</span><span class="n">length</span><span class="p">,</span><span class="n">width</span><span class="p">),</span> <span class="s2">&quot;path/to/directory/with/images&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please note that the first argument is a tuple with the image dimensions. Also note that the images do not have to be a square for this to work. It will expand or shrink image dimensions on demand.</p>
+</div>
+<h3 id="coordinate-computation">Coordinate Computation</h3>
+<p>In order to split each input image into a grid, we must first compute the vertices of the grid itself. This will create an array with all the vertices of the grid boxes that can be used to easily split each image.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">coordinates</span> <span class="o">=</span> <span class="n">slicer</span><span class="o">.</span><span class="n">coordinate_compute</span><span class="p">((</span><span class="n">input_length</span><span class="p">,</span><span class="n">input_width</span><span class="p">),</span> <span class="p">(</span><span class="n">output_length</span><span class="p">,</span><span class="n">output_width</span><span class="p">))</span> <span class="c1"># (1)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Both arguments are tuples in this case!</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Although this algorithm has preliminary checks in place to ensure that the computation can succeed, there can be edge-cases that can cause major crashes in the algorithm. To ensure this does not happen, please ensure that the input dimensions divide evenly into the output dimensions. For example, the following input-output pairs will work: <code>(500, 500) --&gt; (50, 50)</code> <em>BUT</em> <code>(500, 500) --&gt; (36, 36)</code> will not.</p>
+</div>
+<details class="note" open="open">
+<summary>What does the <code>coordinates</code> variable look like and how does it contain the grid information?</summary>
+<p>The coordinate variable that you created will look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[[left1, upper1, right1, bottom1], [left1+length_of_output, upper1, right1+length_of_output, bottom1] ...]
+</code></pre></div>
+<p>The important thing to note here is how the <code>upper1</code> and <code>bottom1</code> will not be modified until the rightmost part of the image is reached. It will essentially split the images from left to right and top to bottom. That is why it is essential for the output images to divide perfectly into the input images.</p>
+</details>
+<h3 id="image-slicing">Image Slicing</h3>
+<p>Now for the best part! We will use the coordinates array that we previously computed to split the images.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">slicer</span><span class="o">.</span><span class="n">crop_segments</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="s2">&quot;path/to/input/images&quot;</span><span class="p">,</span> <span class="s2">&quot;path/to/base/output/directory&quot;</span><span class="p">,</span> <span class="s2">&quot;image_class&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>The first 2 arguments are quite straight forward. The 3rd argument describes where the base data directory is. The the image class (4th argument) will be appended to the "base directory" to make the final output directory.</p>
+<div class="highlight"><span class="filename">For example:</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Output directory: /home/robot/Project/Data
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Image class: Turtles
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Path to images: /home/robot/Project/Data/Turtles/
+</code></pre></div>
+<p>This functionality helps format the data in directory in a way TensorFlow can easily interpret.</p>
+<h3 id="image-integrity-verification">Image Integrity Verification</h3>
+<p>Often times, images directly downloaded from the internet can be corrupt. We can use the integrity verification function to delete corrupt images and ensure that TensorFlow doesn't throw any data errors.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">slicer</span><span class="o">.</span><span class="n">image_integrity_verification</span><span class="p">(</span><span class="s2">&quot;path/to/images&quot;</span><span class="p">,</span> <span class="s2">&quot;delete_images_bool&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>This function provides the option to simply check if images are corrupt and count them or to also delete these images from the dataset.</p>
+<h3 id="convert-images-to-png-experimental">Convert Images to PNG (experimental)</h3>
+<p>This class also allows images to be converted to PNG which allows all images to have an alpha value (RGBA instead of RGB) to further standardize the data. This feature is not extensively tested yet.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">slicer</span><span class="o">.</span><span class="n">convert_img_to_png</span><span class="p">(</span><span class="s2">&quot;path/to/images&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="next-steps">Next Steps</h2>
+<p>After the images are split and sorted by class into their designated folders, it is time to train the Convolutional Neural Network using our custom model and TensorFlow.</p>
 
               
             </article>
