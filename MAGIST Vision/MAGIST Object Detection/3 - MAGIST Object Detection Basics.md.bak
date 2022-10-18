@@ -1,0 +1,23 @@
+# MAGIST Object Detection Basics
+MAGIST uses a multi-layer Convolutional Neural Network (CNN) to efficiently detect and frame relevant objects. The conventional methods to do object *detection* (not recognition) are as follows:
+
+- **YOLO** --> "You Look Only Once" uses a combination of IOU (intersection over union), bounding box regression, and residual blocks.
+- **RCNN/Faster-RCNN** --> Uses a region proposal network to create regions of interest and a CNN to find the region with the highest confidence of the predicted object to be entirely bounded.
+
+Due to the input data restrictions (imposed by the definition of general intelligence), these techniques are unusable. MAGIST runs an algorithm that is a combination of YOLO's grid system and a *"temperature"* based detection system for pose estimation.
+
+## Working Principle
+
+MAGIST Object Detection works in 4 main phases:
+
+1. Splitting input images into smaller segments (follows grid-like shape with no overlapping regions)
+2. Training and predicting on each individual segment. 
+3. Using a temperature threshold to highlight boxes of the highest accuracy.
+4. Compute bounding box from the highlighted images.
+
+
+![Overview of Object Detection Process](https://raw.githubusercontent.com/DeepShift-Labs/MAGIST-Documentation/master/docs/images/magist_img_detection.png){ align=center }
+
+## Isolating the Foreground
+
+When using this technique, our data samples will also include the background as a *correct* as well as the object itself. The reason this poses a potential problem is that is can potentially teach the AI on incorrect, yet correctly marked. However, after training on several hundred thousand data samples, if the majority of the data is the object, the AI will "favor" the more common data and exclude the extraneous outliars.
