@@ -40,7 +40,6 @@ theme:
     - content.code.annotate
 #    - navigation.expand   # This will expand navigation on left
     - content.tooltips
-    - navigation.instant
     - navigation.tracking
 
 
@@ -49,6 +48,7 @@ plugins:
       lang: en
       prebuild_index: true
       indexing: full #Default is full. Other choices are "sections", "titles"
+  - social
 
 markdown_extensions:
   - footnotes
@@ -82,6 +82,24 @@ extra:
   analytics:
     provider: google
     property: G-JNB4K3HLYW
+  social:
+     - icon: fontawesome/brands/github
+       link: https://github.com/DeepShift-Labs
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/medium
+       link: https://deepshiftlabs.medium.com/
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/twitter
+       link: https://twitter.com/DeepShift_Labs
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/youtube
+       link: https://www.youtube.com/channel/UC6nu2aGbAEX3yy5b0W9GBIg
+       name: DeepShift Labs on GitHub
+
+copyright: Copyright &copy; 2021 - 2022 DeepShift Labs | All projects owned by or related to DeepShift Labs are founded, owned, and developed by Krishna Shah.
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
