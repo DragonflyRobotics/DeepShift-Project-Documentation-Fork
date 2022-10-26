@@ -21,6 +21,7 @@ nav:
       - "MAGIST Object Detection":
           - "MAGIST Object Detection Basics": "MAGIST Vision/MAGIST Object Detection/3 - MAGIST Object Detection Basics.md"
           - "Detection Data Management": "MAGIST Vision/MAGIST Object Detection/4 - Detection Data Management.md"
+          - "Convolutional Object Detection": "MAGIST Vision/MAGIST Object Detection/5 - Convolutional Object Detection.md"
 #  - "SOLID Principles": "General/SOLID Principles.md"
 #  - Markdown:
 #      - Markdown Syntax: Markdown/Markdown Syntax.md
