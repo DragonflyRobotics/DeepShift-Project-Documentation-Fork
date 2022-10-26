@@ -2,47 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://wiki.deepshift.dev/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/Configuration/1%20-%20Setup%20Config%20File/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/Getting%20Started/1%20-%20Initial%20Steps/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/Getting%20Started/2%20-%20Process%20Overview/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/Getting%20Started/3%20-%20Next%20Steps/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/MAGIST%20Vision/1%20-%20Basics/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/MAGIST%20Vision/2%20-%20K-Means%20Clustering/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/MAGIST%20Vision/MAGIST%20Object%20Detection/3%20-%20MAGIST%20Object%20Detection%20Basics/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://wiki.deepshift.dev/MAGIST%20Vision/MAGIST%20Object%20Detection/4%20-%20Detection%20Data%20Management/</loc>
-         <lastmod>2022-10-23</lastmod>
+         <lastmod>2022-10-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://wiki.deepshift.dev/MAGIST%20Vision/MAGIST%20Object%20Detection/5%20-%20Convolutional%20Object%20Detection/</loc>
+         <lastmod>2022-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
