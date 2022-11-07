@@ -5,7 +5,7 @@ To build a CNN using the MAGIST API using the functions provided by MAGIST Visio
 ## Basic
 First, you have to import the MAGIST Lite Detector:
 
-```py linenums=1
+``` py linenums="1"
 from MAGIST.Vision.FullySupervisedModels.MAGIST_Lite_Detector import MAGIST_CNN, MAGIST_CNN_Predictor
 ```
 
