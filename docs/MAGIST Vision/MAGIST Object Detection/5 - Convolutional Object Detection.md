@@ -65,6 +65,6 @@ This method is recommended because you can continue running more prevalent proce
     When your code is finished, remember to join the detached thread with the main thread using `queue.join_thread()`. Otherwise, the detached threads may continue to run in the background. 
 
 ## Advanced
-
+This method has an identical end result except you will manually run individual commands to get fine-grain control over the exact CNN flow. 
 
 ***More Information Coming Soon!***
