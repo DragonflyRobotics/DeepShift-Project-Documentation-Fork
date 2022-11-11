@@ -164,6 +164,11 @@ The actual CNN model is not a sequential but a standard TF model defined as a cl
 tf_model = _CNN()
 ```
 
-This class exposes one method (besides `__init__`): `call`. This function defines the forward pass of the model during training and prediction. It will accept the input as an argument and return the final output. `__init__` will inherit the `tf.keras.models.Model` class 
+This class exposes one method (besides `__init__`): `call`. This function defines the forward pass of the model during training and prediction. It will accept the input as an argument and return the final output. `__init__` will inherit the `tf.keras.models.Model` class and initialize the model by building the network.
 
-***More Information Coming Soon!***
+The `MAGIST_CNN` class also has some hidden functions that run in the background when the higher-level functions are called: `__train_step` and `__train_step`. These have `@tf.function` decorators that will optimize their execution and are meant to step training and run the forward pass. 
+
+The last additional function `MAGIST_CNN` provides is the `get_class_names()` method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.
+
+## Next Steps
+Now that the model is trained, you can run predictions on the model. The next page will explore the prediction capabilities of MAGIST.
