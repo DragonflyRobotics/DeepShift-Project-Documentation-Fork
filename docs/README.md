@@ -1,6 +1,7 @@
 # MAGIST-Algorithm
 Multi-Agent Generally Intelligent Simultaneous Training Algorithm for Project Zeta!
-![Github Banner(1)](https://user-images.githubusercontent.com/85193239/171949594-50a1f380-de26-4cd1-94d8-769a4c032455.png)
+![Github BannerLight](https://user-images.githubusercontent.com/85193239/171949594-50a1f380-de26-4cd1-94d8-769a4c032455.png#only-light)
+![Github BannerDark](https://raw.githubusercontent.com/DeepShift-Labs/MAGIST-Documentation/master/docs/assets/combined_hero_dark.png#only-dark)
 
 ***
 
