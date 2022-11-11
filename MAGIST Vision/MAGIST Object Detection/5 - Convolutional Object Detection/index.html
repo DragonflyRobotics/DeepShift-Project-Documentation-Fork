@@ -568,6 +568,53 @@
     Basic
   </a>
   
+    <nav class="md-nav" aria-label="Basic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-main-thread-not-recommended" class="md-nav__link">
+    Execution on main thread (not recommended)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-detached-thread-recommended" class="md-nav__link">
+    Execution on detached thread (recommended)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    Advanced
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-methods" class="md-nav__link">
+    Additional Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
 </li>
       
     </ul>
@@ -623,6 +670,53 @@
     Basic
   </a>
   
+    <nav class="md-nav" aria-label="Basic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-main-thread-not-recommended" class="md-nav__link">
+    Execution on main thread (not recommended)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-on-detached-thread-recommended" class="md-nav__link">
+    Execution on detached thread (recommended)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    Advanced
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-methods" class="md-nav__link">
+    Additional Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
 </li>
       
     </ul>
@@ -651,7 +745,181 @@
 <p>First, you have to import the MAGIST Lite Detector:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">MAGIST.Vision.FullySupervisedModels.MAGIST_Lite_Detector</span> <span class="kn">import</span> <span class="n">MAGIST_CNN</span><span class="p">,</span> <span class="n">MAGIST_CNN_Predictor</span>
 </code></pre></div></td></tr></table></div>
-<p><strong><em>More Information Coming Soon!</em></strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this point, you MUST have your configuration regarding the CNN done in the <code>config.json</code> file. If not, the rest of the code will not function correctly.</p>
+</div>
+<p>Now, you must initialize the CNN using the following line:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">cnn</span> <span class="o">=</span> <span class="n">MAGIST_CNN</span><span class="p">(</span><span class="s2">&quot;config/config.json&quot;</span><span class="p">)</span> <span class="c1"># (1)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Make sure to make the local path match your development environment.</li>
+</ol>
+<p>The final step is to run it. There are two ways to do this and the latter one is recommended.</p>
+<h4 id="execution-on-main-thread-not-recommended">Execution on main thread (not recommended)</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">cnn</span><span class="p">()</span> <span class="c1"># (1)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The <code>MAGIST_CNN</code> class contains an <code>__call__</code> method that supports directly calling the class. </li>
+</ol>
+<p>This code will run on your current Python thread meaning that the script will remain on the CNN process until training is complete. Since training can take a significant amount of time, this method is not recommended.</p>
+<h4 id="execution-on-detached-thread-recommended">Execution on detached thread (recommended)</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">MAGIST.TaskManagment.ThreadedQueue</span> <span class="kn">import</span> <span class="n">MainPriorityQueue</span> <span class="c1"># (1)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">queue</span> <span class="o">=</span> <span class="n">MainPriorityQueue</span><span class="p">(</span><span class="s2">&quot;config/config.json&quot;</span><span class="p">)</span> <span class="c1"># (2)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">queue</span><span class="o">.</span><span class="n">detach_thread</span><span class="p">()</span> <span class="c1"># (3)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">queue</span><span class="o">.</span><span class="n">put_queue</span><span class="p">(</span><span class="n">cnn</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAGIST_CNN_Trainer&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># (4)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="o">...</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">queue</span><span class="o">.</span><span class="n">join_thread</span><span class="p">()</span> <span class="c1"># (5)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Import the multicore threading library.</li>
+<li>Instantiate the class and pass the local path to the config file. This path changes based on your development environment.</li>
+<li>Daemonize and detach the queue from main thread.</li>
+<li>Pass the <code>cnn</code> class <em>object</em> to the queue daemon along with a name and priority. Please not that <code>cnn</code> does not have parenthesis because we are passing an object and not the return of the function. The daemon will execute the function when the queue permits. Also note that the highest priority is 1, so setting the CNN lower allows the computer to finish more important tasks like image downloading or audio processing first. </li>
+<li>When your code is finished, remember to join the detached thread with the main thread. Otherwise, the detached threads may continue to run in the background. </li>
+</ol>
+<p>This method is recommended because you can continue running more prevalent processes in the foreground while off-loading the CPU-intensive CNN to the background.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please not that <code>cnn</code> does not have parenthesis because we are passing an object and not the return of the function. The daemon will execute the function when the queue permits.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When your code is finished, remember to join the detached thread with the main thread using <code>queue.join_thread()</code>. Otherwise, the detached threads may continue to run in the background. </p>
+</div>
+<h2 id="advanced">Advanced</h2>
+<p>This method has an identical end result except you will manually run individual commands to get fine-grain control over the exact CNN flow. Most of the functions that will be executed here are identical to the <code>cnn.__call__()</code> or <code>cnn()</code>.  </p>
+<p>Here is what <code>cnn.__call__()</code> looks like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="sd">&quot;&quot;&quot;Calls the train method.&quot;&quot;&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Loading data...&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span> <span class="c1"># (1)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Data loaded successfully.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Building model...&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">compile_model</span><span class="p">()</span> <span class="c1"># (2)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Model built successfully.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Setting up callbacks...&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_init</span><span class="p">()</span> <span class="c1"># (3)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Callbacks setup successfully.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Training model...&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">()</span> <span class="c1"># (4)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Training completed successfully.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The data is being loaded from the configuration file. Ensure that the paths to the dataset are   consistent. Also ensure that the data directory is structured as follows: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    - Data
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        - class_1
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>            - img1.jpg
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>            - img2.jpg
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>            - ...
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        - class_2
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>            - img1.jpg
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>            - img2.jpg
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            - ...
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        - class_3
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            - img1.jpg
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            - img2.jpg
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            - ...
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        - ...
+</code></pre></div>
+Also note that MAGIST will automatically perform the train-test split when this function is called as dictated by the configuration file.</li>
+<li>This function will simply compile the model and prepare it for training.</li>
+<li>This function will initialize all Tensorflow callback that are setup including Tensorboard and TF Checkpoints.</li>
+<li>This is the function that will run the actual training procedure. </li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please ensure that the data directory is structured as follows: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>- Data
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    - class_1
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        - img1.jpg
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        - img2.jpg
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        - ...
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    - class_2
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        - img1.jpg
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        - img2.jpg
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        - ...
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    - class_3
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        - img1.jpg
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        - img2.jpg
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        - ...
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    - ...
+</code></pre></div>
+Otherwise, the data may load incorrectly or the program might crash altogether.</p>
+</div>
+<p>Since that was a class definition, you must instantiate the class and call the code through arguments and returns like this:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">MAGIST.Vision.FullySupervisedModels.MAGIST_Lite_Detector</span> <span class="kn">import</span> <span class="n">MAGIST_CNN</span><span class="p">,</span> <span class="n">MAGIST_CNN_Predictor</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">cnn</span> <span class="o">=</span> <span class="n">MAGIST_CNN</span><span class="p">(</span><span class="s2">&quot;config/config.json&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">cnn</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">cnn</span><span class="o">.</span><span class="n">compile_model</span><span class="p">()</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">ckpt</span><span class="p">,</span> <span class="n">manager</span><span class="p">,</span> <span class="n">checkpoints</span> <span class="o">=</span> <span class="n">cnn</span><span class="o">.</span><span class="n">callbacks_init</span><span class="p">()</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">cnn</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>You will have to follow a similar process to daemonize it:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">MAGIST.TaskManagment.ThreadedQueue</span> <span class="kn">import</span> <span class="n">MainPriorityQueue</span> 
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">queue</span> <span class="o">=</span> <span class="n">MainPriorityQueue</span><span class="p">(</span><span class="s2">&quot;config/config.json&quot;</span><span class="p">)</span> 
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">queue</span><span class="o">.</span><span class="n">detach_thread</span><span class="p">()</span> 
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">queue</span><span class="o">.</span><span class="n">put_queue</span><span class="p">(</span><span class="n">cnn</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAGIST_CNN_Trainer&quot;</span><span class="p">,</span> <span class="n">priority</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="o">...</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">queue</span><span class="o">.</span><span class="n">join_thread</span><span class="p">()</span> 
+</code></pre></div></td></tr></table></div>
+<h3 id="additional-methods">Additional Methods</h3>
+<p>The actual CNN model is not a sequential but a standard TF model defined as a class. To access that class, you must use the hidden class as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">tf_model</span> <span class="o">=</span> <span class="n">_CNN</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>This class exposes one method (besides <code>__init__</code>): <code>call</code>. This function defines the forward pass of the model during training and prediction. It will accept the input as an argument and return the final output. <code>__init__</code> will inherit the <code>tf.keras.models.Model</code> class and initialize the model by building the network.</p>
+<p>The <code>MAGIST_CNN</code> class also has some hidden functions that run in the background when the higher-level functions are called: <code>__train_step</code> and <code>__train_step</code>. These have <code>@tf.function</code> decorators that will optimize their execution and are meant to step training and run the forward pass. </p>
+<p>The last additional function <code>MAGIST_CNN</code> provides is the <code>get_class_names()</code> method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that the model is trained, you can run predictions on the model. The next page will explore the prediction capabilities of MAGIST.</p>
 
 
   
