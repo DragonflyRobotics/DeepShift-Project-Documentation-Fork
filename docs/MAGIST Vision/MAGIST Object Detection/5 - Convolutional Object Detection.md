@@ -65,6 +65,105 @@ This method is recommended because you can continue running more prevalent proce
     When your code is finished, remember to join the detached thread with the main thread using `queue.join_thread()`. Otherwise, the detached threads may continue to run in the background. 
 
 ## Advanced
-This method has an identical end result except you will manually run individual commands to get fine-grain control over the exact CNN flow. 
+This method has an identical end result except you will manually run individual commands to get fine-grain control over the exact CNN flow. Most of the functions that will be executed here are identical to the `cnn.__call__()` or `cnn()`.  
+
+Here is what `cnn.__call__()` looks like:
+
+``` py linenums="1"
+def __call__(self):
+    """Calls the train method."""
+    self.log.info("Automated Trainer --> Loading data...")
+    train, test = self.load_data() # (1)
+    self.log.info("Automated Trainer --> Data loaded successfully.")
+    self.log.info("Automated Trainer --> Building model...")
+    self.compile_model() # (2)
+    self.log.info("Automated Trainer --> Model built successfully.")
+    self.log.info("Automated Trainer --> Setting up callbacks...")
+    self.callbacks_init() # (3)
+    self.log.info("Automated Trainer --> Callbacks setup successfully.")
+    self.log.info("Automated Trainer --> Training model...")
+    self.train() # (4)
+    self.log.info("Automated Trainer --> Training completed successfully.")
+```
+
+1. The data is being loaded from the configuration file. Ensure that the paths to the dataset are   consistent. Also ensure that the data directory is structured as follows: 
+```
+    - Data
+        - class_1
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - class_2
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - class_3
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - ...
+```
+Also note that MAGIST will automatically perform the train-test split when this function is called as dictated by the configuration file.
+2. This function will simply compile the model and prepare it for training.
+3. This function will initialize all Tensorflow callback that are setup including Tensorboard and TF Checkpoints.
+4. This is the function that will run the actual training procedure. 
+
+!!! warning
+
+    Please ensure that the data directory is structured as follows: 
+    ```
+    - Data
+        - class_1
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - class_2
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - class_3
+            - img1.jpg
+            - img2.jpg
+            - ...
+        - ...
+    ```
+    Otherwise, the data may load incorrectly or the program might crash altogether.
+
+Since that was a class definition, you must instantiate the class and call the code through arguments and returns like this:
+
+``` py linenums="1"
+from MAGIST.Vision.FullySupervisedModels.MAGIST_Lite_Detector import MAGIST_CNN, MAGIST_CNN_Predictor
+
+cnn = MAGIST_CNN("config/config.json")
+
+train, test = cnn.load_data()
+model = cnn.compile_model()
+ckpt, manager, checkpoints = cnn.callbacks_init()
+cnn.train()
+```
+
+You will have to follow a similar process to daemonize it:
+
+``` py linenums="1"
+from MAGIST.TaskManagment.ThreadedQueue import MainPriorityQueue 
+
+queue = MainPriorityQueue("config/config.json") 
+queue.detach_thread() 
+
+queue.put_queue(cnn.train, name="MAGIST_CNN_Trainer", priority=10) 
+
+...
+
+queue.join_thread() 
+```
+
+### Additional Methods
+The actual CNN model is not a sequential but a standard TF model defined as a class. To access that class, you must use the hidden class as follows:
+
+``` py linenums="1"
+tf_model = _CNN()
+```
+
+This class exposes one method (besides `__init__`): `call`. This function defines the forward pass of the model during training and prediction. It will accept the input as an argument and return the final output. `__init__` will inherit the `tf.keras.models.Model` class 
 
 ***More Information Coming Soon!***
