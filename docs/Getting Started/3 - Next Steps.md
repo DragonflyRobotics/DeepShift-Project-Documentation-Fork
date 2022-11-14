@@ -16,4 +16,4 @@ If you want to support for this project, please don't hesitate to visit these li
 
 ## Need Help?
 
-If you need any assistance setting up or using MAGIST, please [contact me](krishna.shah@deepshift.dev).
+If you need any assistance setting up or using MAGIST, please [contact me](mailto:krishna.shah@deepshift.dev).
