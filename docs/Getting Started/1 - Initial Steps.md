@@ -1,16 +1,16 @@
 # Welcome
-We are thrilled that you have shown interest in the MAGIST project. We are currently in the process of building the
-MAGIST. As a result, there might be issues or bugs that you encounter. If you encounter any issues, please post an issue
+We are thrilled that you have shown interest in the MAGIST project. We are currently in the process of building
+MAGIST. As a result, there might be issues or bugs that you encounter. If you encounter any issues, please report the issue
 on the MAGIST GitHub repository. We will try to resolve them as soon as possible. If you have a solution to the issue,
 you may create a pull request, and we will review it as soon as possible. With that out of the way, let's get started!
 
 ## How it works?
-We are using a powerful technique that combine the decades of research our brilliant researchers have done. We are using a
+We are using a powerful technique that ties together the decades of research that brilliant researchers have done. We are using a
 multi-agent approach to intelligently process real-world data and learn from it. To understand this, however, it is
 crucial to comprehend how we define general intelligence, as there are major discrepancies from source to source.
 
 ### Our Goal
-General intelligence is the ability of a machine to automatically acquire and train itself on a vast variety of knowledge that it may acquire from any source. It must also be able to make new predictions on the data upon inquisition (direct or indirect). This machine may not start with any pre-trained models, data, etc.
+General intelligence is the ability of a machine to automatically acquire and train itself on a vast variety of data that it acquires from a large number of sources. It must also be able to make new predictions based on the data upon inquisition (direct or indirect). This machine may not start with any pre-trained models, data, etc.
 
 ## Setup
 MAGIST is a complex project, so a clean and efficient work space is essential. The entirety of this project was made in
@@ -28,7 +28,7 @@ Replicating this environment is crucial for stability and performance.
 This project has many dependencies. Most can be installed using `pip`. Some require OS-level package managers.
 
 ***These instruction are for Linux-based systems. In particular for Ubuntu 20.04 LTS based operating systems. Other
-systems may have errors that will require debugging.***
+systems may have errors that may require debugging.***
 
 ### Linux (Ubuntu-based Systems)
 First install `Python 3` and `pip`:

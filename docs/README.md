@@ -19,15 +19,14 @@ Multi-Agent Generally Intelligent Simultaneous Training Algorithm for Project Ze
 
 
 ### Data
-The data is the most crucial element as the entire intelligence works around it. That is why the AI needs to process it and provide reasonable assumptions. There is another condition, however: the algorithm, in its finished state, MUST be strictly Python code. This means no pre-trained models or presets. It must find its data and process it unsupervised. Although this architecture seems hard-coded in the present state, as more functionality is added, it will be more intelligent and decisive. Here, the data will assume the following structure:
+The data is the most crucial element of the algorithm as the entire intelligence is built around it. That is why the AI needs to process it thoroughly and provide reasonable assumptions based off of that data. But, there is another condition: our algorithm, in its finished state, MUST be strictly Python code. That means no pre-trained models or presets. It must find its data and process it completly unsupervised. Although this architecture seems hard-coded in the present state, as more functionality is added, it will be more intelligent and decisive. Here, the data will assume the following structure:
 
 ```
 Object -> Common Associated Verbs, Synonyms, Events, Timestamps of usage, Nearby Objects, etc.
 ```
 
 This is the "Who, What, When, Where, Why, How" of the data. This data can later be filtered and called upon when
-inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained
-models are allowed, here is the process to follow:
+inferences are needed. To get here, however, the data must first be extracted from a single image. Since no pre-trained models are allowed, here is the process that the algorithm follows:
 
 ```
 1. K-Means Clustering(find key objects in the image) -> Discriminator for integrity check(see if clustering was performed well)
@@ -38,10 +37,10 @@ models are allowed, here is the process to follow:
 ```
 
 ### Natural Language Processing
-Another key stage of this AGI(Artificial General Intelligence) is human interaction and understanding. MAGIST will constantly listen to conversations and make intelligent decisions. Here is the target process:
+Another key stage of our AGI(Artificial General Intelligence) is human interaction and understanding. MAGIST will constantly listen to conversations and make intelligent decisions. Here is the target process:
 
 ```
-1. Record audio data and transcribe it(this is ***the only*** place where a pre-trained model(the transcriber) is used since learning a human language fully unsupervised is incredibly arduous.
+1. Record audio data and transcribe it. (This is ***the only*** place where a pre-trained model(the transcriber) is used since learning a human language fully unsupervised is incredibly arduous)
 2. Use a custom positional embedding with a Self-Attention head to find keywords.
 3. Search these terms in the NeuralDB for possible entries.
 4. Search unknown terms online and store definitions for future reference. (future)
@@ -54,8 +53,8 @@ Another key stage of this AGI(Artificial General Intelligence) is human interact
 
 ## Usage
 This project is still under development. Please contact me at [krishna.shah@deepshift.dev]() if you want immediate access and/or support
-to MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for access. There
-will also be documentation with more instructions.
+for MAGIST. Once the algorithm is in a stable state, I will release a Python Package on PyPI and Github for easier access. There
+will also be documentation with further instruction.
 
 ***
 
@@ -134,7 +133,7 @@ pip3 install MAGIST-Algorithm-x.x.x-py3-none-any.whl
 ***
 
 ## Contributing
-Your contribution, monetary or programmatically, is crucial for the rapid development of the algorithm and its training.
+Your contribution, either monetary or programmatically, is crucial for the rapid development of the algorithm and its training.
 Please consider contributing. Even minute changes to our README will be greatly appreciated.
 
 ### Project Zeta
@@ -145,5 +144,6 @@ We are building a fully biomimetic robot dog to implement MAGIST into. This will
 ***
 
 # Disclaimer
-Artificial Intelligence is a powerful field **meant only for research and study**, and it should be kept that way. The unethical use of MAGIST can have severe repercussions for society and the perpetrator. DeepShift Labs and any programs it develops are strictly for research purposes. Hence, all of our products, MAGIST included, are to be used **strictly** for research purposes. Misuse of this program can lead to heavy fines and prosecution.
+Artificial Intelligence is a powerful field **meant only for research and study**, and it should be kept that way. The unethical use of AI can have severe repercussions for society and the perpetrator. DeepShift Labs and any programs it develops are strictly for research purposes. Hence, all of our products, MAGIST included, are to be used **strictly** for research purposes. 
+
 Furthermore, to retitle, rebrand, or redistribute without **explicitly** crediting DeepShift Labs is illegal.
