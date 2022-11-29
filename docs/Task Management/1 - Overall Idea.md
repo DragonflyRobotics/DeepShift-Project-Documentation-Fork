@@ -4,7 +4,12 @@ Since MAGIST is a multi-agent system, it must use some sort of multiprocessing s
 
 ## Threaded Queueing System
 
-This system is composed of two main components: a priority queue and a worker. The priority queue is responsible for managing task priorities and order. When the task is assigned to the queue, the user is required to provide a queue priority. This priority will be used to order tasks. Then the tasks will be assigned from the queue to the workers in sequential order. The worker will remain occupied until the task completes, terminates, or fails. 
+This system is composed of two main components: a priority queue and a worker. The priority queue is responsible for managing task priorities and order. When the task is assigned to the queue, the user is required to provide a queue priority. This priority will be used to order tasks. Then the tasks will be assigned from the queue to the workers in sequential order. The worker will remain occupied until the task completes, terminates, or fails. The last task is to join threads to the main, active thread. 
+
+!!! warning
+
+    The queue thread (the one that assigns tasks to workers) is non-terminating. This means that if you don't join the threads, the queue will continue to run in the background on standby and will consume CPU and RAM resources. 
+
 
 ## A Closer Look
 
@@ -64,6 +69,11 @@ To further understand the implications and potential complications of this syste
         Worker1 - TaskC - Initalizing
         Worker2 - TaskB - BUSY
     ```
+
+=== "5. Join Threads"
+    Now, you must join the worker threads and queue thread to the main thread. Please understand that if a process is running on a worker thread, it will be JOINED and not terminated. This means that the main thread will continue the execution of the process through the worker.
+
+        Queue.join()
 
 
 

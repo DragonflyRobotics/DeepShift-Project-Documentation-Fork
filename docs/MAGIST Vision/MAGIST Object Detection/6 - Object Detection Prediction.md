@@ -27,3 +27,5 @@ To predict on a single image, you must use the appropriate method and provide th
 ```py linenums="1"
 predictor.img_prediction("some_folder/another_folder/some_image.jpg")
 ```
+
+***More information coming soon***
