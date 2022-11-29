@@ -15,6 +15,8 @@ nav:
       - "Next Steps": "Getting Started/3 - Next Steps.md"
   - "Configuration":
       - "Setup Config File": "Configuration/1 - Setup Config File.md"
+  - "Task Management":
+      - "Overall Idea": "Task Management/1 - Overall Idea.md"
   - "MAGIST Vision":
       - "Basics": "MAGIST Vision/1 - Basics.md"
       - "K-Means Clustering": "MAGIST Vision/2 - K-Means Clustering.md"
@@ -23,3 +25,4 @@ nav:
           - "Detection Data Management": "MAGIST Vision/MAGIST Object Detection/4 - Detection Data Management.md"
           - "Convolutional Object Detection": "MAGIST Vision/MAGIST Object Detection/5 - Convolutional Object Detection.md"
           - "Object Detection Prediction": "MAGIST Vision/MAGIST Object Detection/6 - Object Detection Prediction.md"
+
