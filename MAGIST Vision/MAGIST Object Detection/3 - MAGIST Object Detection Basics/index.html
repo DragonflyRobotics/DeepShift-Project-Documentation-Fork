@@ -710,7 +710,7 @@
 <h1 id="magist-object-detection-basics">MAGIST Object Detection Basics</h1>
 <p>MAGIST uses a multi-layer Convolutional Neural Network (CNN) to efficiently detect and frame relevant objects. The conventional methods to do object <em>detection</em> (not recognition) are as follows:</p>
 <ul>
-<li><strong>YOLO</strong> --&gt; "You Look Only Once" uses a combination of IOU (intersection over union), bounding box regression, and residual blocks.</li>
+<li><strong>YOLO</strong> --&gt; "You Only Look Once" uses a combination of IOU (intersection over union), bounding box regression, and residual blocks.</li>
 <li><strong>RCNN/Faster-RCNN</strong> --&gt; Uses a region proposal network to create regions of interest and a CNN to find the region with the highest confidence of the predicted object to be entirely bounded.</li>
 </ul>
 <p>Due to the input data restrictions (imposed by the definition of general intelligence), these techniques are unusable. MAGIST runs an algorithm that is a combination of YOLO's grid system and a <em>"temperature"</em> based detection system for pose estimation.</p>
