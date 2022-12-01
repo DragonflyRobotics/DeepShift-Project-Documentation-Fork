@@ -1,6 +1,6 @@
 # Object Detection Prediction
 
-Once the model is trained, you can run predictions on it or use it as a checkpoint to train further at a later point in time. This page requires a trained model (`model.tflite` or `model.h5`).
+Once the model is trained, you can run predictions on it or use it as a checkpoint to train further at a later date. This page requires a trained model (`model.tflite` or `model.h5`).
 
 ## Simple Prediction API
 

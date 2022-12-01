@@ -51,15 +51,15 @@ If community members are interested in making custom modules using the base MAGI
 3.  This subcomponent manages all the tasks, threads, cores, and other system resources for faster and more distributed operation.
 4.  These are global paths for MAGIST core system. 3rd parties will ***NOT*** use this subcomponent and will define paths in their own module as the "tf_lite_detector" module did.
 5.  This component manages verbose and debug. 3rd parties will likely use this as a global verbose setting for their subcomponents.
-6.  This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements regarding their module like paths, modes, parameters, etc.
-7.  This is another example of a subcomponent of MAGIST implemented into the configuration.
+6.  This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements related to their module like paths, modes, parameters, etc.
+7.  This is another example of a subcomponent of MAGIST that is implemented into the configuration.
 8.  This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
 9.  This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
 10. This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
 
 !!! note
 
-    Please note that this `config.json` is a sample and the exact parameters vary based on the environment.
+    Please note that this `config.json` is a sample and the exact parameters will vary based on the environment.
 
 ## Other Important Configuration Files
 The file explored in the previous section is the `config.json` file under the `src/config` folder on our repository. There are other files that pertain to this project that must also be explored:
@@ -78,7 +78,7 @@ The file explored in the previous section is the `config.json` file under the `s
     `schema_nested.json` is an experimental file that used ElasticSearch nested databases. This file should be ignored. This wiki will only cover `schema.json` and `queries.json` since they are relevant to the project.
 
 ### Queries Configuration
-After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to using them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.
+After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.
 
 ``` json linenums="1"
 {

@@ -1,6 +1,6 @@
 # Next Steps
 
-If the prospect of developing the world's first fully-functional general intelligence is as exciting for you as it is for me, please follow these next steps to properly understand the MAGIST API. From there, you can modify or rewrite the processing pipeline to suit your needs. There are many approaches to achieving General Intelligence, our pipeline is one of the simplest and most effective ones. Feel free to find new processes that also aim to develop an AGI.
+If the prospect of developing the world's first fully-functional general intelligence is as exciting for you as it is for me, please follow these next steps to properly understand the MAGIST API. From there, you can modify or rewrite the processing pipeline to suit your needs. There are many approaches to achieving General Intelligence, our pipeline is one of the simplest and most effective ones. Feel free to attempt to find new processes that also aim to develop an AGI.
 
 ## Contributing
 

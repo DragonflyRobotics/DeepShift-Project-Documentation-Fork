@@ -1,6 +1,6 @@
 # Detection Data Management
 
-This component of MAGIST deals with image data manipulation and processing. This class in MAGIST will perform image resizing, integrity verification, and image splitting as depicted by the previous article. This allows the data to be formed and prepared to run the final CNN.
+This component of MAGIST deals with image data manipulation and processing. This class in MAGIST will perform image resizing, integrity verification, and image splitting as depicted by the previous article. This prepares the data so that the final CNN can run properly.
 
 ## Importing Necessary Libraries
 

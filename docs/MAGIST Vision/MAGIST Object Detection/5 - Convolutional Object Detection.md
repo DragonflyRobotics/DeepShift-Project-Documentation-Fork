@@ -86,7 +86,7 @@ def __call__(self):
     self.log.info("Automated Trainer --> Training completed successfully.")
 ```
 
-1. The data is being loaded from the configuration file. Ensure that the paths to the dataset are   consistent. Also ensure that the data directory is structured as follows: 
+1. The data is being loaded from the configuration file. Ensure that the paths to the dataset are consistent. Also ensure that the data directory is structured as follows: 
 ```
     - Data
         - class_1
@@ -168,7 +168,7 @@ This class exposes one method (besides `__init__`): `call`. This function define
 
 The `MAGIST_CNN` class also has some hidden functions that run in the background when the higher-level functions are called: `__train_step` and `__train_step`. These have `@tf.function` decorators that will optimize their execution and are meant to step training and run the forward pass. 
 
-The last additional function `MAGIST_CNN` provides is the `get_class_names()` method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.
+The last additional function that `MAGIST_CNN` can provide is the `get_class_names()` method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.
 
 ## Next Steps
 Now that the model is trained, you can run predictions on the model. The next page will explore the prediction capabilities of MAGIST.
