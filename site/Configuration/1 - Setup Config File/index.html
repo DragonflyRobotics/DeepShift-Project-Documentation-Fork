@@ -845,15 +845,15 @@
 <li>This subcomponent manages all the tasks, threads, cores, and other system resources for faster and more distributed operation.</li>
 <li>These are global paths for MAGIST core system. 3rd parties will <strong><em>NOT</em></strong> use this subcomponent and will define paths in their own module as the "tf_lite_detector" module did.</li>
 <li>This component manages verbose and debug. 3rd parties will likely use this as a global verbose setting for their subcomponents.</li>
-<li>This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements regarding their module like paths, modes, parameters, etc.</li>
-<li>This is another example of a subcomponent of MAGIST implemented into the configuration.</li>
+<li>This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements related to their module like paths, modes, parameters, etc.</li>
+<li>This is another example of a subcomponent of MAGIST that is implemented into the configuration.</li>
 <li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
 <li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
 <li>This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that this <code>config.json</code> is a sample and the exact parameters vary based on the environment.</p>
+<p>Please note that this <code>config.json</code> is a sample and the exact parameters will vary based on the environment.</p>
 </div>
 <h2 id="other-important-configuration-files">Other Important Configuration Files</h2>
 <p>The file explored in the previous section is the <code>config.json</code> file under the <code>src/config</code> folder on our repository. There are other files that pertain to this project that must also be explored:</p>
@@ -869,7 +869,7 @@
 <p><code>schema_nested.json</code> is an experimental file that used ElasticSearch nested databases. This file should be ignored. This wiki will only cover <code>schema.json</code> and <code>queries.json</code> since they are relevant to the project.</p>
 </div>
 <h3 id="queries-configuration">Queries Configuration</h3>
-<p>After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to using them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.</p>
+<p>After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>

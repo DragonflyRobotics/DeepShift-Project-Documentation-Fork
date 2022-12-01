@@ -894,7 +894,7 @@
 <a id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Automated Trainer --&gt; Training completed successfully.&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ol>
-<li>The data is being loaded from the configuration file. Ensure that the paths to the dataset are   consistent. Also ensure that the data directory is structured as follows: 
+<li>The data is being loaded from the configuration file. Ensure that the paths to the dataset are consistent. Also ensure that the data directory is structured as follows: 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    - Data
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        - class_1
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>            - img1.jpg
@@ -979,7 +979,7 @@ Otherwise, the data may load incorrectly or the program might crash altogether.<
 </code></pre></div></td></tr></table></div>
 <p>This class exposes one method (besides <code>__init__</code>): <code>call</code>. This function defines the forward pass of the model during training and prediction. It will accept the input as an argument and return the final output. <code>__init__</code> will inherit the <code>tf.keras.models.Model</code> class and initialize the model by building the network.</p>
 <p>The <code>MAGIST_CNN</code> class also has some hidden functions that run in the background when the higher-level functions are called: <code>__train_step</code> and <code>__train_step</code>. These have <code>@tf.function</code> decorators that will optimize their execution and are meant to step training and run the forward pass. </p>
-<p>The last additional function <code>MAGIST_CNN</code> provides is the <code>get_class_names()</code> method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.</p>
+<p>The last additional function that <code>MAGIST_CNN</code> can provide is the <code>get_class_names()</code> method. It will just return an array of classes where the index corresponds with the output of the Tensorflow model itself.</p>
 <h2 id="next-steps">Next Steps</h2>
 <p>Now that the model is trained, you can run predictions on the model. The next page will explore the prediction capabilities of MAGIST.</p>
 
