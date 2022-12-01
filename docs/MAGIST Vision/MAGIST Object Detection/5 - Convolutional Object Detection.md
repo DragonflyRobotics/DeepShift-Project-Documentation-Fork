@@ -129,7 +129,7 @@ Also note that MAGIST will automatically perform the train-test split when this 
     ```
     Otherwise, the data may load incorrectly or the program might crash altogether.
 
-Since that was a class definition, you must instantiate the class and call the code through the arguments and returns like this:
+Since that was a class definition, you must instantiate the class and call the code through arguments and returns like this:
 
 ``` py linenums="1"
 from MAGIST.Vision.FullySupervisedModels.MAGIST_Lite_Detector import MAGIST_CNN, MAGIST_CNN_Predictor
