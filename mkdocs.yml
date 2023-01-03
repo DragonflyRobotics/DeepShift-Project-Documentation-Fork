@@ -83,7 +83,7 @@ extra:
   homepage: https://deepshift.dev
   analytics:
     provider: google
-    property: G-JNB4K3HLYW
+    property: G-6KVSYBNNZW
   social:
      - icon: fontawesome/brands/github
        link: https://github.com/DeepShift-Labs
