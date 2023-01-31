@@ -24,8 +24,6 @@ theme:
         name: Switch to light mode
   features:
     - navigation.instant
-    - search.suggest
-    - search.highlight
 #    - navigation.tabs
 #    - navigation.sections
     - navigation.top
@@ -33,6 +31,8 @@ theme:
 #    - navigation.expand   # This will expand navigation on left
     - content.tooltips
     - navigation.tracking
+
+plugins: []
 
 extra:
   homepage: https://deepshift.dev
