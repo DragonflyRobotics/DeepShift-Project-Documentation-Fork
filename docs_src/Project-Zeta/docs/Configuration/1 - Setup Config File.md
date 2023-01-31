@@ -1,0 +1,232 @@
+# Modular Configuration System (MCS)
+
+MAGIST uses a custom configuration system that we call MCS. MCS is a modular method for managing data-flows and MAGIST subcomponents. For example, for the dataflow "images", we have the "MAGIST Vision" which contains the "DetectionDataManager", "FullySupervisedModels", and "SemiSupervisedModels". Although all subcomponents do not require configuration, having such categorization provides the modularity that makes MAGIST community-friendly.
+
+If community members are interested in making custom modules using the base MAGIST API, they can readily do that through this configuration and a consistent module setup that will be discussed in later wiki pages.
+
+## Line-By-Line Sample Config Explanation
+``` json linenums="1"
+{
+  "api_authentication": [ // (1)
+    {"google": [
+      {"api_key": "***"},
+      {"project_cx": "***"},
+      {"GIS_downloader_verbose": 0}
+    ]}
+  ],
+  "system_administration": [ // (2)
+    {"sudo_password": "***"}
+  ],
+  "task_management": [ // (3)
+    {"num_of_worker_threads": 4}
+  ],
+  "paths": [ // (4)
+    {"log_dir": "Logs"}
+  ],
+  "basic_variables": [ // (5)
+    {"verbose": 1},
+    {"enable_matplot_display":  0}
+  ],
+  "tf_lite_detector": [ // (6)
+    {"data_path": "Data"},
+    {"TensorBoard_log_dir": "Tensorflow/TensorBoard"},
+    {"TF_ckpt_path": "Tensorflow/tf_ckpt"},
+    {"input_image_size": [50, 50]},
+    {"grayscale": 0},
+    {"epochs": 10},
+    {"batch_size": 32},
+    {"seed": 42},
+    {"validation_split":  0.2},
+    {"export_full_model": "Tensorflow/Full_TF_Model"}
+  ],
+  "neural_db": [ // (7) (8)
+    {"mongo_socket": "mongodb://localhost:27017/"}, //(9)
+    {"db_search_zone": ["vision", "nlp", "common"]} // (10)
+  ]
+}
+```
+
+1.  This is a large container to manage all API related authentication and configuration. This can contain subsets by authentication method or API provider.
+2.  This is primarily meant for system-level commands with elevated privileges. 3rd party modules will rarely use this subcomponent.
+3.  This subcomponent manages all the tasks, threads, cores, and other system resources for faster and more distributed operation.
+4.  These are global paths for MAGIST core system. 3rd parties will ***NOT*** use this subcomponent and will define paths in their own module as the "tf_lite_detector" module did.
+5.  This component manages verbose and debug. 3rd parties will likely use this as a global verbose setting for their subcomponents.
+6.  This is our first actual subcomponent. This is what 3rd parties will be creating and implementing into the existing MAGIST system. This can contain other elements related to their module like paths, modes, parameters, etc.
+7.  This is another example of a subcomponent of MAGIST that is implemented into the configuration.
+8.  This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
+9.  This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
+10. This comment was specifically added since this functionality is only available for MAGIST with MongoDB. Newer versions deprecated MongoDB and instead use ElasticSearch.
+
+!!! note
+
+    Please note that this `config.json` is a sample and the exact parameters will vary based on the environment.
+
+## Other Important Configuration Files
+The file explored in the previous section is the `config.json` file under the `src/config` folder on our repository. There are other files that pertain to this project that must also be explored:
+
+```
+- config
+
+    * config.json
+    * queries.json
+    * schema.json
+    * schema_nested.json
+```
+
+!!! note
+
+    `schema_nested.json` is an experimental file that used ElasticSearch nested databases. This file should be ignored. This wiki will only cover `schema.json` and `queries.json` since they are relevant to the project.
+
+### Queries Configuration
+After the deprecation of MongoDB, MAGIST uses ElasticSearch to perform data storage, management, and querying. This is a drastic change from the first stable release (v0.1.0) which used a completely custom nested querying method. Due to the high-performance search functions the ElasticSearch API exposes, MAGIST transitioned to them. ElasticSearch entirely runs on JSON queries which is why we created separate configuration files for them.
+
+``` json linenums="1"
+{
+  "object_exists": { // (1)
+    "query": {
+      "query_string": {
+        "query" : "",
+        "fields": ["name"], // (2)
+        "analyzer": "keyword" // (3)
+      }
+    }
+  },
+  "object_full": { // (4)
+    "query": {
+      "multi_match": {
+        "query" : "", // (5)
+        "analyzer": "main_analyzer" // (6)
+      }
+    }
+  },
+  "word_exists": { // (7)
+    "query": {
+      "query_string": {
+        "query" : "",
+        "fields": ["name"],
+        "analyzer": "keyword"
+      }
+    }
+  },
+  "word_full": { // (8)
+    "query": {
+      "multi_match": {
+        "query" : "",
+        "analyzer": "main_analyzer"
+      }
+    }
+  }
+}
+```
+
+1.  Query to check if an object exists given a keyword. This does a more narrow search as opposed to the full database search that the following query does.
+2.  Sets the fields to search through to "name" which is just the object name.
+3.  Runs a keyword search which is meant for names.
+4.  Query to do a complete database search for objects by any datapoint: name, description, location, usage, etc.
+5.  Sets the field to wildcard.
+6.  Uses a custom analyzer to effectively search the database for information.
+7.  Functions identically to `object_exists`, but for words.
+8.  Functions identically to `object_full`, but for words.
+
+These queries can be modified to suit user preferences.
+
+!!! warning
+
+    MAGIST will simply use the JSON dictionary contained in the categories (`object_exists`, `object_full`, `word_exists`, `word_full`) ***EXACTLY*** as they are written here. This means that these dictionaries are fed ***DIRECTLY*** into ElasticSearch. Please use ElasticSearch configuration style, keywords, and arguments when modifying.
+
+### Data Schema Configuration
+The `schema.json` file is responsible for defining search parameters, ElasticSearch settings, and the database schema. The schema will structure the data in a logical, easy to search format that can easily be expanded. Adding new modules or datatypes will require extensive modification of this schema.
+
+``` json linenums="1"
+{
+  "object_db_schema": { // (1)
+    "settings": { // (2)
+      "analysis": { // (3)
+        "analyzer": {
+          "main_analyzer": { // (4)
+            "type": "fingerprint", // (5)
+            "stopwords": "_english_" // (6)
+          }
+        }
+      },
+      "similarity": { // (7)
+        "main_similarity": {
+          "type": "LMJelinekMercer", // (8)
+          "lambda": 0.5 // (9)
+        }
+      }
+    },
+
+    "mappings": { // (10)
+      "properties": { // (11)
+        "name":    { "type": "keyword" }, // (12)
+        "description":  { "type": "text"  }, // (13)
+        "users":   { "type": "text"  }, // (14)
+        "related_objects":  { "type": "text"  }, // (15)
+        "location":  { "type": "text"  } // (16)
+      }
+    }
+  },
+  "word_db_schema": { // (17)
+    "settings": {
+      "analysis": {
+        "analyzer": {
+          "main_analyzer": {
+            "type": "fingerprint",
+            "stopwords": "_english_"
+          }
+        }
+      },
+      "similarity": {
+        "main_similarity": {
+          "type": "LMJelinekMercer",
+          "lambda": 0.5
+        }
+      }
+    },
+
+    "mappings": {
+      "properties": {
+        "word":    { "type": "text" }, // (18)
+        "definition":  { "type": "text"  }, // (19)
+        "users":   { "type": "text"  }, // (20)
+        "related_words":  { "type": "text"  }, // (21)
+        "related_objects":  { "type": "text"  }, // (22)
+        "location":  { "type": "text"  } // (23)
+      }
+    }
+  }
+}
+```
+
+1.  The container for the object database schema.
+2.  This is the ElasticSearch database settings that defines the analyzer and search settings.
+3.  The analyzer is a set of algorithms that define the exact semantics on how a word/sentence/paragraph is to be interpreted, searched, and processed.
+4.  This defines the custom analyzer that MAGIST uses.
+5.  The analyzer uses the `fingerprint` algorithm will "lowercase, normalize to remove extended characters, sort, deduplicate and concatenate into a single token. If a stop-word list is configured, stop words will also be removed"[^1].
+6.  Defines the dictionary to use when deleting stop-words like "is", "the", "an", etc.
+7.  This defines the similarity algorithm ElasticSearch will used when evaluating the similarity of the query to the data sample.
+8.  This algorithm will "attempt to capture important patterns in the text, while leaving out noise"[^2].
+9.  The `lambda` parameter is one of the requirements for the algorithm to function. [More about LM Jelinek Mercer lambda parameter](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html#lm_jelinek_mercer)
+10.  This defines the database schema (a.k.a mapping) that the database will use to store each document (this refers to a single datapoint with several attributes).
+11.  In this case, `properties` refers to the attributes of the object itself and are not ElasticSearch.
+12.  Name of the objects
+13.  Description of the object scraped from online sources.
+14.  People who have been recognized to be using that object.
+15.  Other objects that relate to this object.
+16.  Where the object was found.
+17.  Same database schema container as the `object_db_schema` but for words.
+18.  The word that is being stored.
+19.  The definition of the word.
+20.  People who were found to use that word.
+21.  Other words that relate to this one.
+22.  Objects that relate to the word.
+23.  Where the word was used.   
+
+!!! warning
+
+    MAGIST will simply use the JSON dictionary contained in the categories (`object_db_schema`, `word_db_schema`) ***EXACTLY*** as they are written here. This means that these dictionaries are fed ***DIRECTLY*** into ElasticSearch. Please use ElasticSearch configuration style, keywords, and arguments when modifying.
+
+[^1]: This quote is directly taken from the ElasticSearch documentation regarding the `fingerprint` algorithm. [Link to the page](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-fingerprint-analyzer.html)
+
+[^2]: This quote is directly taken from the ElasticSearch documentation regarding the `LM Jelinek Mercer` algorithm. [More about LM Jelinek Mercer](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html#lm_jelinek_mercer)

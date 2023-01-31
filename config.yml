@@ -1,0 +1,22 @@
+repos:
+  - name: MAGIST
+    title: MAGIST Documentation
+    image: magist.png
+    url: https://github.com/A-Baji/mk-docs-sample1.git
+    branch: master
+  - name: RaSDAN
+    title: RaSDAN Documentation
+    image: rasdan.png
+    url: https://github.com/A-Baji/mk-docs-sample2.git
+    branch: master
+  - name: Project-Zeta
+    title: Project Zeta Documentation
+    image: zeta.png
+    url: https://github.com/A-Baji/mk-docs-sample3.git
+    branch: master
+element_id: multirepo
+target_dir: docs
+repos_dir: docs_src
+index_tpl: index.tpl
+extra_files:
+    - styles.css

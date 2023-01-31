@@ -1,0 +1,28 @@
+site_name: MAGIST Algorithm Documentation - DeepShift Labs
+site_url: https://wiki.deepshift.dev
+repo_url: https://github.com/DeepShift-Labs/MAGIST-Algorithm
+edit_uri: "https://github.com/DeepShift-Labs/MAGIST-Documentation/edit/master/docs" # No need to make changes here if you are using github
+site_description: "MAGIST Algorithm Documentation - DeepShift Labs"
+site_author: Krishna Shah
+dev_addr: 127.0.0.1:8011
+
+
+nav:
+  - "Read Me": README.md
+  - "Getting Started":
+      - "Installation": "Getting Started/1 - Initial Steps.md"
+      - "Process Overview": "Getting Started/2 - Process Overview.md"
+      - "Next Steps": "Getting Started/3 - Next Steps.md"
+  - "Configuration":
+      - "Setup Config File": "Configuration/1 - Setup Config File.md"
+  - "Task Management":
+      - "Overall Idea": "Task Management/1 - Overall Idea.md"
+  - "MAGIST Vision":
+      - "Basics": "MAGIST Vision/1 - Basics.md"
+      - "K-Means Clustering": "MAGIST Vision/2 - K-Means Clustering.md"
+      - "MAGIST Object Detection":
+          - "MAGIST Object Detection Basics": "MAGIST Vision/MAGIST Object Detection/3 - MAGIST Object Detection Basics.md"
+          - "Detection Data Management": "MAGIST Vision/MAGIST Object Detection/4 - Detection Data Management.md"
+          - "Convolutional Object Detection": "MAGIST Vision/MAGIST Object Detection/5 - Convolutional Object Detection.md"
+          - "Object Detection Prediction": "MAGIST Vision/MAGIST Object Detection/6 - Object Detection Prediction.md"
+

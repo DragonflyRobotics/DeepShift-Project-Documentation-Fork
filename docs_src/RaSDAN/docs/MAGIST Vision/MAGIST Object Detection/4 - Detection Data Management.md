@@ -1,0 +1,104 @@
+# Detection Data Management
+
+This component of MAGIST deals with image data manipulation and processing. This class in MAGIST will perform image resizing, integrity verification, and image splitting as depicted by the previous article. This prepares the data so that the final CNN can run properly.
+
+## Importing Necessary Libraries
+
+MAGIST will automatically handle all the dependencies as long as the main `DataDetectionManager` module is imported:
+
+``` py linenums="1"
+from MAGIST.Vision.DetectionDataManager.image_slicer import ImageSlicer
+```
+
+## Usage
+
+Now, we must initialize the class and begin to use it:
+
+``` py linenums="1"
+slicer = ImageSlicer("path/to/config.json")
+```
+
+### Resize Image
+
+This function allows users to resize all images in a given directory to a standard size.
+
+!!! danger
+
+    It will ***overwrite*** existing images. As of now, it does not support functionality to export the images elsewhere. If someone would like to add this functionality, please visit our [GitHub Repository](https://github.com/DeepShift-Labs/MAGIST-Algorithm) to learn how to create a pull-request and request your modifications to be merged.
+
+``` py linenums="1"
+slicer.resizer((length,width), "path/to/directory/with/images")
+```
+
+!!! important
+
+    Please note that the first argument is a tuple with the image dimensions. Also note that the images do not have to be a square for this to work. It will expand or shrink image dimensions on demand.
+
+### Coordinate Computation
+
+In order to split each input image into a grid, we must first compute the vertices of the grid itself. This will create an array with all the vertices of the grid boxes that can be used to easily split each image.
+
+``` py linenums="1"
+coordinates = slicer.coordinate_compute((input_length,input_width), (output_length,output_width)) # (1)
+```
+
+1.  Both arguments are tuples in this case!
+
+!!! important
+
+    Although this algorithm has preliminary checks in place to ensure that the computation can succeed, there can be edge-cases that can cause major crashes in the algorithm. To ensure this does not happen, please ensure that the input dimensions divide evenly into the output dimensions. For example, the following input-output pairs will work: `(500, 500) --> (50, 50)` *BUT* `(500, 500) --> (36, 36)` will not.
+
+???+ note "What does the `coordinates` variable look like and how does it contain the grid information?"
+
+    The coordinate variable that you created will look like this:
+
+    ```
+    [[left1, upper1, right1, bottom1], [left1+length_of_output, upper1, right1+length_of_output, bottom1] ...]
+    ```
+
+    The important thing to note here is how the `upper1` and `bottom1` will not be modified until the rightmost part of the image is reached. It will essentially split the images from left to right and top to bottom. That is why it is essential for the output images to divide perfectly into the input images.
+
+
+### Image Slicing
+
+Now for the best part! We will use the coordinates array that we previously computed to split the images.
+
+``` py linenums="1"
+slicer.crop_segments(coordinates, "path/to/input/images", "path/to/base/output/directory", "image_class")
+```
+
+The first 2 arguments are quite straight forward. The 3rd argument describes where the base data directory is. The the image class (4th argument) will be appended to the "base directory" to make the final output directory.
+
+
+
+``` title="For example:"
+Output directory: /home/robot/Project/Data
+Image class: Turtles
+
+Path to images: /home/robot/Project/Data/Turtles/
+```
+
+This functionality helps format the data in directory in a way TensorFlow can easily interpret.
+
+
+### Image Integrity Verification
+
+Often times, images directly downloaded from the internet can be corrupt. We can use the integrity verification function to delete corrupt images and ensure that TensorFlow doesn't throw any data errors.
+
+``` py linenums="1"
+slicer.image_integrity_verification("path/to/images", "delete_images_bool")
+```
+
+This function provides the option to simply check if images are corrupt and count them or to also delete these images from the dataset.
+
+### Convert Images to PNG (experimental)
+
+This class also allows images to be converted to PNG which allows all images to have an alpha value (RGBA instead of RGB) to further standardize the data. This feature is not extensively tested yet.
+
+``` py linenums="1"
+slicer.convert_img_to_png("path/to/images")
+```
+
+## Next Steps
+
+After the images are split and sorted by class into their designated folders, it is time to train the Convolutional Neural Network using our custom model and TensorFlow.

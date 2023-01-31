@@ -1,0 +1,110 @@
+INHERIT: site_settings.yml
+
+
+###################  NO CHANGES BEYOND THIS POINT  ################
+# MkDocs Wiki: https://github.com/mkdocs/mkdocs/wiki
+docs_dir: "docs" # Default is "docs"
+site_dir: "site" # Default is "site"
+use_directory_urls: true # Default is true.
+
+
+
+theme:
+  #Material Theme used here: https://github.com/squidfunk/mkdocs-material
+  # Material Theme Detailed Reference: https://squidfunk.github.io/mkdocs-material/reference/abbreviations/
+  #Other Themes: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes
+  name: material
+  language: en
+#  logo: assets/favicon.png
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+#    - navigation.tabs
+#    - navigation.sections
+    - navigation.top
+    - content.code.annotate
+#    - navigation.expand   # This will expand navigation on left
+    - content.tooltips
+    - navigation.tracking
+
+
+plugins:
+  - search:
+      lang: en
+      prebuild_index: true
+      indexing: full #Default is full. Other choices are "sections", "titles"
+  - social
+
+markdown_extensions:
+  - footnotes
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.details
+  - admonition
+  - abbr
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  homepage: https://deepshift.dev
+  analytics:
+    provider: google
+    property: G-6KVSYBNNZW
+  social:
+     - icon: fontawesome/brands/github
+       link: https://github.com/DeepShift-Labs
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/medium
+       link: https://deepshiftlabs.medium.com/
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/twitter
+       link: https://twitter.com/DeepShift_Labs
+       name: DeepShift Labs on GitHub
+
+     - icon: fontawesome/brands/youtube
+       link: https://www.youtube.com/channel/UC6nu2aGbAEX3yy5b0W9GBIg
+       name: DeepShift Labs on GitHub
+
+copyright: Copyright &copy; 2021 - 2022 DeepShift Labs | All projects owned by or related to DeepShift Labs are founded, owned, and developed by Krishna Shah.
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - javascripts/tables.js
+
+#extra_css
