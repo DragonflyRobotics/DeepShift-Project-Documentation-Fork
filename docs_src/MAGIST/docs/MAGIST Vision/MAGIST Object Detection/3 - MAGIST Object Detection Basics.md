@@ -14,5 +14,5 @@ MAGIST Object Detection works in 3 main phases:
 2. Training and predicting on each individual segment 
 
 
-![Overview of Object Detection Process](https://imgur.com/a/Xd70Pp9){ align=center }
+![Overview of Object Detection Process](object_detect_proc){ align=center }
 
